@@ -62,6 +62,34 @@ OWN_HOSTS = ("www.ojuice.net", "ojuice.net")
 # Third-party ad / tracking / song-request services: links unwrapped, scripts and images removed
 DEAD_HOSTS = ("audiorealm.com", "cnxweb.com", "extreme-dm.com", "mirabilis.com")
 MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+# ---- removal-request footer: added to every page that lists or describes people
+REMOVAL_MARK = 'id="removal-note"'
+REMOVAL_NOTE = (
+    '<div id="removal-note" style="clear:both;margin:28px auto 8px;padding:6px 8px 0;width:60%;'
+    'border-top:1px solid #808080;text-align:center;font:10px/14px Verdana,Arial,Helvetica,sans-serif;'
+    'color:#808080;background:transparent">To be removed from this page, '
+    '<a href="mailto:chandra_oj@pm.me" style="color:#808080;text-decoration:underline">contact me</a>.</div>'
+)
+_BODY_END = re.compile(r"(?is)</body\s*>(?!.*</body\s*>)")
+
+
+def add_removal_note(text):
+    if REMOVAL_MARK in text:
+        return text
+    m = _BODY_END.search(text)
+    if m:
+        return text[: m.start()] + REMOVAL_NOTE + "\n" + text[m.start():]
+    return text + "\n" + REMOVAL_NOTE + "\n"
+
+PEOPLE_KINDS = ("people sheet", "people list", "party coming")     # nick sheets, nick lists, party attendee lists
+PEOPLE_PATHS = ("/charts/voters.html", "/credits.html")
+PEOPLE_PREFIXES = ("/interviews/",)
+
+
+def is_people_page(pg):
+    return pg.kind in PEOPLE_KINDS or pg.path in PEOPLE_PATHS or pg.path.startswith(PEOPLE_PREFIXES)
+
 MONTHS_LONG = ["January", "February", "March", "April", "May", "June", "July", "August",
                "September", "October", "November", "December"]
 WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]   # Python weekday() order
@@ -1531,7 +1559,9 @@ class Site:
 
     def write_pages(self):
         for path in sorted(self.pages):
-            write_text(self.out / (self.prefix + path).lstrip("/"), self.pages[path].text)
+            pg = self.pages[path]
+            write_text(self.out / (self.prefix + path).lstrip("/"),
+                       add_removal_note(pg.text) if is_people_page(pg) else pg.text)
         self.pages_written = len(self.pages)
         self.pages = {p: None for p in self.pages}      # free the text, keep the set
 

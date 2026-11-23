@@ -172,6 +172,10 @@ Edge rules were the alternative: they can match a query string but cannot copy a
 into the target path, and accept 5 patterns per trigger, so ~4000 URLs would need hundreds of
 rules. One script is smaller, testable (`scripts/test_edge_script.mjs`) and versioned.
 
+## Removal requests
+
+Pages that list or describe people end with a small footer, "To be removed from this page, contact me." (a `mailto:` link). `scripts/statify.py` adds it (`is_people_page`), so it survives rebuilds; `scripts/verify_build.py` leaves it out of its `mailto:` and e-mail checks.
+
 ## Deploying
 
 `site/` is generated on the Mac (it needs `private/`) and is not in the repository, so the
