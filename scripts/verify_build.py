@@ -52,6 +52,8 @@ LEFTOVERS = [
     ("form tag", re.compile(r"(?i)<form\b")),
     ("mailto:", re.compile(r"(?i)mailto:")),
 ]
+# The removal-request footer (statify.py) carries the only mailto: of the site: leave it out of the scans.
+REMOVAL_NOTE_RE = re.compile(r'(?s)<div id="removal-note".*?</div>')
 EMAIL_RE = re.compile(r"[A-Za-z0-9._+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+")
 OWN_HOST_RE = re.compile(r"(?i)https?://(?:www\.)?ojuice\.net(?![\w.-])")
 IPV4 = re.compile(r"(?<![\d.])(?:(?:25[0-5]|2[0-4]\d|1?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|1?\d?\d)(?![\d.])")
@@ -187,7 +189,7 @@ def main(argv=None):
     texts = {}
     for f in files:
         if f.lower().endswith(TEXT_EXT):
-            texts[f] = rd(build / f)
+            texts[f] = REMOVAL_NOTE_RE.sub("", rd(build / f))
     for n, p in extra:
         if n.lower().endswith(TEXT_EXT):
             texts[n] = rd(p)
