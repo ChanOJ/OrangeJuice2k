@@ -199,7 +199,7 @@ dropped elements in `build-meta/dropped.tsv`.
   root files, picture library files, `favicon.ico`).
 - `hosting/404.html` is rendered from `skins/tonic/404.html` with bilingual text.
 - Every page loads `/js/oj.js` (one static file, no inline script added, no cookie): skin
-  chooser, skin of the day on the home page, search fields and results.
+  chooser, home redirect to the chosen skin, search fields and results.
 - Checks: `scripts/verify_build.py` (forms, macros, links, charset, e-mails, secrets and private
   IPs read at run time from `private/site-raw/`) and `scripts/check_excludes.py`.
 
@@ -228,9 +228,12 @@ dropped elements in `build-meta/dropped.tsv`.
   page hid are marked "not in the 2000 list"), and the popularity table frozen from the `SKINS`
   table (`oj_skins_usage`, hidden skins left out as in 2000). "USE THIS SKIN" stores the choice
   in `localStorage` (no cookie, wrapped in try/catch) and opens the page the visitor came from
-  under the chosen skin; "none" clears it.
-- Home page only (`/` and `/index.html` at the root): a visitor who chose a skin, or who never
-  chose and gets another skin of the day by the 2000 rule, is sent to `/skin/<name>/index.html`
+  under the chosen skin; "none" clears it (back to tonic).
+- Default skin: always `tonic`. The 2000 rotation (cookie, else per-IP list, else `Day MOD 4`
+  over tonic/pl/marblemad/poi with snow and xmas variants) is not reproduced: an archive should
+  look the same on every visit.
+- Home page only (`/` and `/index.html` at the root): a visitor who chose a skin other than tonic
+  is sent to `/skin/<name>/index.html`
   (`location.replace`). No other page redirects, so direct links and crawlers see the URL they
   asked for.
 

@@ -1,10 +1,9 @@
-/* Orange Juice 2000 archive: skin chooser, skin of the day on the home page, client-side search.
+/* Orange Juice 2000 archive: skin chooser (default skin tonic), client-side search.
    Source: scripts/oj.js, copied to site/js/oj.js by scripts/statify.py (the skin list is filled in).
    No cookie: the chosen skin is kept in localStorage. No inline script needed (CSP friendly). */
 (function () {
   "use strict";
   var SKINS = /*SKINS*/[];
-  var ROTATION = ["tonic", "pl", "marblemad", "poi"];      // parameters.inc: (Day(Now) MOD 4) + 1
   var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   var KEY = "oj_skin";
 
@@ -23,20 +22,12 @@
   function skinPath(name, p) { return (name === "tonic" ? "" : "/skin/" + name) + p; }
   function known(name) { return SKINS.indexOf(name) >= 0; }
 
-  function skinOfTheDay(d) {
-    var s = ROTATION[d.getDate() % 4];
-    if (s === "tonic") {
-      var mo = d.getMonth() + 1;
-      if (mo <= 3) { s = "tonic_snow"; } else if (mo === 12 && d.getDate() >= 15) { s = "tonic_xmas"; }
-    }
-    return known(s) ? s : "tonic";
-  }
-
-  // Home page at the root only: the chosen skin, else the skin of the day (no redirect anywhere else).
+  // Home page at the root only: the skin the visitor chose, if any (no redirect anywhere else).
+  // New visitors always get tonic: the 2000 skin of the day (Day MOD 4) is not reproduced, an
+  // archive should look the same on every visit.
   if (!m && (path === "/" || path === "/index.html")) {
     var want = load(KEY);
-    if (!want || !known(want)) { want = skinOfTheDay(new Date()); }
-    if (want !== "tonic") { window.location.replace(skinPath(want, "/index.html")); return; }
+    if (want && known(want) && want !== "tonic") { window.location.replace(skinPath(want, "/index.html")); return; }
   }
 
   function esc(s) {
@@ -67,7 +58,7 @@
         for (var j = 0; j < radios.length; j++) { if (radios[j].checked) { v = radios[j].value; } }
         if (v === null) { return; }
         store(KEY, v === "" ? null : v);
-        var target = v === "" ? skinOfTheDay(new Date()) : v;
+        var target = v === "" ? "tonic" : v;
         var back = "/index.html";
         try {
           var ref = document.referrer ? new URL(document.referrer) : null;

@@ -37,7 +37,8 @@ git-ignored: it is built and deployed from the Mac (`scripts/publish.sh`), never
   go through `404.asp`. A generator can reuse the templates as they are (`schema_report.md`).
 - **Skins**: `tonic` is the full set; others override a few files. Choice was cookie `OJ_SKIN`,
   then per-IP list, then `Day MOD 4` rotation, xmas and snow variants of tonic. The archive
-  renders all 13 real skins (see `docs/data-model.md` §9).
+  renders all 13 real skins (see `docs/data-model.md` §9); default is always tonic, the
+  2000 skin of the day was dropped on purpose (an archive should look the same on every visit).
 - **Database**: `private/db/OJUICE_Data.MDF`, SQL Server 2000 (dbi_version 539), read with
   `scripts/mdf/mdf.py` (`python3 -I scripts/mdf/schema.py FILE.MDF out.txt`). 43 tables; NEWS
   5615 rows (1998-05 to 2006-09), PEOPLE 25125, GROUPS 1212, PARTIES 751, PICTURES 1640, ONELINER

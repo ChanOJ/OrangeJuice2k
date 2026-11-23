@@ -1150,7 +1150,8 @@ class Site:
         buf = buf.replace("You've the choice between saving your selection either to a cookie, or\r\n\t\t\tin the "
                           "webserver based upon your IP if this one is fixed.",
                           "The archive remembers your choice in this browser (no cookie); &quot;none&quot; brings "
-                          "back the skin of the day on the home page.")
+                          "back the default skin (tonic).")
+        buf = buf.replace("it depends of the day :)", "the default skin (tonic)")
         buf = self.cpl(buf, "/")
         self.add("/skins.html", "/skins.asp", buf, "skins", ("/skins.asp",))
 
@@ -1379,7 +1380,7 @@ class Site:
         text = self.rewrite_links(text, pg)
         text = self.sweep_own_host(text, pg)
         text = mask_ips(text, self.private_ips)
-        if "/js/oj.js" not in text:                     # search fields, skin chooser, home skin of the day
+        if "/js/oj.js" not in text:                     # search fields, skin chooser, home redirect to the chosen skin
             tag = '<SCRIPT src="/js/oj.js"></SCRIPT>\r\n'
             i = text.lower().rfind("</body>")
             text = text[:i] + tag + text[i:] if i >= 0 else text + "\r\n" + tag
