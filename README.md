@@ -50,6 +50,8 @@ and a small Edge Script redirects the old `*.asp?id=` URLs to the static pages.
 
 DNS is not managed here: the hostname is a CNAME to `orangejuice2k.b-cdn.net` at Infomaniak.
 
+Full list of the sites: https://chanoj.github.io/
+
 ## What was changed from the original
 
 The ASP pages were rendered once from their skin templates and the database; the full list is in
