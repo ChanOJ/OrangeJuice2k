@@ -1,0 +1,54 @@
+# Files that must NOT be published (relative to site/; no '/' = basename anywhere; '*' crosses '/').
+# Read by scripts/statify.py (never copied) and checked by scripts/check_excludes.py and
+# scripts/verify_build.py on site/ and hosting/. Source: private/notes/security_report.md.
+
+# OS / tool junk
+.DS_Store
+Thumbs.db
+.picasa.ini
+# server-side code and its backups: never published, rendered to .html instead
+*.asp
+*.asa
+*.inc
+*.aspsav
+*.bak
+global.asa
+# credentials, admin pages, private data folders
+admin/
+_data/
+_cache/
+_inc/
+*.log
+# private photos; backups of the member ID photos. handles/pictures/<id>.<ext> is published only for
+# the people of the archive (dt_crea < 2000-11-20): check_excludes.py and verify_build.py enforce it
+pictures/photo_private/
+handles/pictures/bak/
+# debug / test pages
+env.asp
+test.asp
+tm.asp
+av.asp
+a.asp
+c.asp
+gz1.asp
+gz2.asp
+width.asp
+ielog.asp
+charmap.asp
+1.htm
+test.htm
+# executables and archives holding executables (statify also opens every zip and refuses executables)
+archives/vncviewer/
+*.exe
+*.dll
+*.com
+*.scr
+*.bat
+archives/Pcany9.zip
+archives/past.zip
+archives/tpolm-bjor7000.zip
+archives/amigold.zip
+# Nectarine stream playlists: dead SHOUTcast servers, hold the office IP range
+*.pls
+# picture library upload queue (never moderated)
+pictures/piclib/wait/
