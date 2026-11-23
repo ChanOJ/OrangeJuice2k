@@ -1,11 +1,12 @@
-# OrangeJuice2k
+# OrangeJuice99
 
-**Orange Juice (2000 version).** Orange Juice was a French-language online magazine about the
-demoscene. This is its 2000 edition: classic ASP (VBScript) on IIS with a SQL Server database,
+**Orange Juice (1999 version).** Orange Juice was a French-language online magazine about the
+demoscene. This is the edition online from about September 1999, archived as of
+2000-11-19: classic ASP (VBScript) on IIS with a SQL Server database,
 news and articles, parties, groups, picture library, charts, oneliner and switchable skins.
 
 Published as a **100 % static, read-only archive** on bunny.net at the hostname of
-[`site.json`](site.json) (`orangejuice2k.sauthier.family`), like
+[`site.json`](site.json) (`orangejuice99.sauthier.family`), like
 [OrangeJuice97](../OrangeJuice97) and [OrangeJuice98](../OrangeJuice98). Visitors can never write
 anything: the CDN only serves files, every method except GET/HEAD/OPTIONS is refused at the edge,
 and a small Edge Script redirects the old `*.asp?id=` URLs to the static pages.
@@ -48,7 +49,7 @@ and a small Edge Script redirects the old `*.asp?id=` URLs to the static pages.
 | `private/media/piclib/` | Picture library images (1645 files), missing from `site-raw/pictures/piclib` |
 | `private/notes/` | Research reports: page inventory and schema, security audit, Wayback coverage, OJ versions, MDF schema dumps |
 
-DNS is not managed here: the hostname is a CNAME to `orangejuice2k.b-cdn.net` at Infomaniak.
+DNS is not managed here: the hostname is a CNAME to `orangejuice99.b-cdn.net` at Infomaniak.
 
 Full list of the sites: https://chanoj.github.io/
 
@@ -238,14 +239,15 @@ cd infra && pass-cli run --env-file secrets.env -- tofu plan
 ## First setup (to do)
 
 1. Validate offline and create the state passphrase item `OrangeJuice2k-tofu-state-passphrase`
-   in Proton Pass (generated, never shown):
+   in Proton Pass (generated, never shown; the item kept its original name after the
+   repository was renamed from OrangeJuice2k to OrangeJuice99, `infra/secrets.env` points to it):
 
    ```bash
-   scripts/bootstrap.sh new OrangeJuice2k orangejuice2k orangejuice2k orangejuice2k.sauthier.family
+   scripts/bootstrap.sh new OrangeJuice99 orangejuice99 orangejuice99 orangejuice99.sauthier.family
    ```
 
 2. Initialise git and commit on a branch, then create the GitHub repository
-   `ChanOJ/OrangeJuice2k` and its secrets (also adds the `origin` remote):
+   `ChanOJ/OrangeJuice99` and its secrets (also adds the `origin` remote):
 
    ```bash
    scripts/bootstrap.sh github
@@ -256,7 +258,7 @@ cd infra && pass-cli run --env-file secrets.env -- tofu plan
    it creates the storage zone, the Edge Script, the pull zone, the hostname and the edge rules,
    and commits the encrypted state.
 5. At Infomaniak (Manager > Domaines > sauthier.family > Zone DNS), add a CNAME
-   `orangejuice2k` -> `orangejuice2k.b-cdn.net`. The certificate is issued once DNS answers.
+   `orangejuice99` -> `orangejuice99.b-cdn.net`. The certificate is issued once DNS answers.
 6. Pull the state commit, then deploy from the Mac (about 51 600 files, 530 MB; the smoke test
    runs at the end):
 
@@ -272,13 +274,13 @@ cd infra && pass-cli run --env-file secrets.env -- tofu plan
 
 If the apply rejects an edge rule, the 404 path or the Edge Script, set it by hand:
 
-1. CDN > pull zone `orangejuice2k` > *Edge rules* > *Add Edge Rule*: condition *Request Method*
+1. CDN > pull zone `orangejuice99` > *Edge rules* > *Add Edge Rule*: condition *Request Method*
    is none of `GET`, `HEAD`, `OPTIONS` -> action *Block Request*.
 2. *Edge rules* > *Add Edge Rule*: condition *URL* `*` -> one *Set Response Header* action per
    header listed above (values in `infra/main.tf`, `local.csp` and the rule 2 block).
 3. *Edge rules*: condition *URL Extension* `htm`, `html` -> *Set Response Header*
    `Content-Type: text/html; charset=iso-8859-1`.
-4. Storage > storage zone `orangejuice2k` > *Error pages*: set the 404 file to `/404.html`.
-5. Edge Scripting > *Add Script* > *Middleware*, name `orangejuice2k-legacy-redirects`, paste
-   `infra/edge/redirects.js`, *Publish*; link it to the pull zone `orangejuice2k`. Then CDN >
+4. Storage > storage zone `orangejuice99` > *Error pages*: set the 404 file to `/404.html`.
+5. Edge Scripting > *Add Script* > *Middleware*, name `orangejuice99-legacy-redirects`, paste
+   `infra/edge/redirects.js`, *Publish*; link it to the pull zone `orangejuice99`. Then CDN >
    pull zone > *Caching* > *Vary cache*: *Query string* on.

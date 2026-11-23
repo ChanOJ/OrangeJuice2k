@@ -1176,7 +1176,7 @@ class Site:
     def render_404(self):
         buf = self.eng.open_html("404.html", False)
         body = ('<FONT class=title6><B>Error 404<BR>File not found</FONT><BR><BR>\n'
-                'This page does not exist in the Orange Juice archive (2000 edition, read-only).<BR>\n'
+                'This page does not exist in the Orange Juice archive (1999 version, read-only).<BR>\n'
                 'Cette page n\'existe pas dans l\'archive d\'Orange Juice (&eacute;dition 2000, lecture seule).<BR><BR>\n'
                 '<A href="/">&gt; back to the news / retour aux news</A>')
         buf = re.sub(r"<FONT class=title6><B>Error 404<BR>File not found</FONT>", lambda m: body, buf)
