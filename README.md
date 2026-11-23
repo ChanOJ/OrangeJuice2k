@@ -23,7 +23,7 @@ and a small Edge Script redirects the old `*.asp?id=` URLs to the static pages.
 | `infra/secrets.env` | Proton Pass **references** to the secrets (vault `OldSites`), no secret values |
 | `docs/data-model.md` | Template engine, tables and columns used, cut-off, URL scheme, removed features, redactions |
 | `scripts/statify.py` | `private/` (ASP sources, SQLite, picture library) -> `site/` + `hosting/404.html` + `build-meta/` |
-| `scripts/oj.js` | Source of `site/js/oj.js`: skin chooser, skin of the day, client-side search |
+| `scripts/oj.js` | Source of `site/js/oj.js`: skin chooser, client-side search |
 | `scripts/verify_build.py` | Checks `site/`: no ASP or forms, links and assets, charset, no e-mails, secrets or private IPs |
 | `scripts/check_excludes.py` | Fails if `site/` or `hosting/` holds a path of `scripts/exclude-globs.txt` |
 | `scripts/exclude-globs.txt` | What must never be published |
@@ -60,7 +60,7 @@ The ASP pages were rendered once from their skin templates and the database; the
 - Forms, counters, admin, oneliner posts, votes and skin cookies removed (an "archived,
   read-only" notice replaces them); searches are client-side (`/js/oj.js`, `/idx/*.json`).
 - The 13 skins are all rendered (tonic at the root, the others under `/skin/<name>/`), with a
-  JavaScript skin chooser and the 2000 skin of the day.
+  JavaScript skin chooser; new visitors always get tonic (no 2000 skin of the day).
 - Personal data redacted as in OrangeJuice98 (`nick@????`, `dd/mm/????`, IPs as `????`);
   sources, credentials and private pictures never published (`scripts/exclude-globs.txt`).
 
