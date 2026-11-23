@@ -1,6 +1,6 @@
-# Orange Juice 2000: data model and static rendering
+# Orange Juice (1999 version): data model and static rendering
 
-The 2000 site was classic ASP (VBScript) on IIS with a SQL Server 2000 database. This file
+The site was classic ASP (VBScript) on IIS with a SQL Server 2000 database. This file
 describes, in public-safe terms, what `scripts/statify.py` reads and how it renders the static
 archive. No secret, personal data or IP address is reproduced here.
 

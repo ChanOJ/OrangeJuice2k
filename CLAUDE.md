@@ -1,8 +1,9 @@
-# OrangeJuice2k: context for Claude sessions
+# OrangeJuice99: context for Claude sessions
 
-Static archive of the 2000 ASP version of Orange Juice. Follow `~/Code/OrangeJuice98` (README:
-statify, verify_build, exclude globs, hardening, deploy) rather than redesigning. GitHub repo
-`ChanOJ/OrangeJuice2k` (public), not created yet (README "First setup"). `site/` (~530 MB) is
+Static archive of the ASP version of Orange Juice online from about September 1999 to
+November 2000 (renamed from OrangeJuice2k: the edition started in 1999). Follow
+`~/Code/OrangeJuice98` (README: statify, verify_build, exclude globs, hardening, deploy) rather
+than redesigning. GitHub repo `ChanOJ/OrangeJuice99` (public). `site/` (~530 MB) is
 git-ignored: it is built and deployed from the Mac (`scripts/publish.sh`), never by CI.
 
 ## Hard rules

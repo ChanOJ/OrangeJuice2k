@@ -1,4 +1,4 @@
-/* Orange Juice 2000 archive: skin chooser (default skin tonic), client-side search.
+/* Orange Juice 1999 archive: skin chooser (default skin tonic), client-side search.
    Source: scripts/oj.js, copied to site/js/oj.js by scripts/statify.py (the skin list is filled in).
    No cookie: the chosen skin is kept in localStorage. No inline script needed (CSP friendly). */
 (function () {

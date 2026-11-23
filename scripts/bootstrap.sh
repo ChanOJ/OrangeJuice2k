@@ -50,7 +50,7 @@ cmd_github() {
   if gh repo view "$owner/$repo" >/dev/null 2>&1; then
     echo "Repository $owner/$repo already exists."
   else
-    gh repo create "$owner/$repo" --public --description "Static archive of Orange Juice 2000, $(jq -r .hostname site.json), hosted on bunny.net"
+    gh repo create "$owner/$repo" --public --description "Static archive of Orange Juice (1999 version), $(jq -r .hostname site.json), hosted on bunny.net"
   fi
   # Secrets go from Proton Pass to GitHub through stdin: never shown nor written.
   # shellcheck disable=SC2016
