@@ -11,6 +11,10 @@ Published as a **100 % static, read-only archive** on bunny.net at the hostname 
 anything: the CDN only serves files, every method except GET/HEAD/OPTIONS is refused at the edge,
 and a small Edge Script redirects the old `*.asp?id=` URLs to the static pages.
 
+## Search engines
+
+`scripts/seo.py` writes `robots.txt` (allow everything, with the `Sitemap:` line) and `sitemap.xml` (indexable pages only and the alternative skins) into `site/`; `scripts/publish.sh` runs it before the deploy (alone: `python3 -I scripts/seo.py`; the files land in the git-ignored `site/`).
+
 ## Layout
 
 | Path | Content |
