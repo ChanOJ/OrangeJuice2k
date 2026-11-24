@@ -19,10 +19,8 @@ id_ed25519*
 # (e-mails, passwords, IPs), private pictures, research notes. Never published.
 private/
 
-# Generated static site: about 600 MB (13 skins, 49 000 pages), built on the Mac from private/
-# and deployed from there (scripts/publish.sh). hosting/ and build-meta/ stay versioned (small;
-# build-meta/url-map.json feeds the Edge Script).
-site/
+# site/ (the generated static site, about 300 MB) is committed: built on the Mac from private/
+# (scripts/publish.sh), deployed by CI when merged to main.
 
 # OpenTofu
 .terraform/

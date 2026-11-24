@@ -1,0 +1,2434 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META name="DESCRIPTION" content="Orange Juice - The demoscene information center">
+<META name="KEYWORDS" content="4k, 64k, amiga, ansi, arm, ascii, assembler, assembleur, assembly, atari, bbs, bulletin board system, c64, chip, chiptune, coder, commodore 64, competition, compo, computer art, conference, convention, demo-maker, demo-scene, demomaker, demoscene, demoparty, demoparties, demo-party, demo-parties, dos extender, extended module, falcon, fast tracker, gfx, graphician, impulse tracker, interview, intro, ltp, lucky and tigrou party, meeting, mod, mod plug, mod plug player, mod plug plugin, mod plug tracker, module, music, musician, orange juice, oric, party, parties, pc, programmer, programmeur, risc pc, s3m, scene link, sid, the gathering, the party, tracker, xm">
+<META name="revisit-after" content="15 days">
+<META name="ROBOTS" content="ALL">
+<TITLE>Orange Juice - The demoscene information center</TITLE>
+<STYLE type="text/css">
+A:link {color:#FF8040}
+A:visited {color:#FF8040}
+A:active {color:#FF8040}
+A:hover {color:#FF8040}
+A.txt:link {color:#FFFFFF}
+A.txt:visited {color:#FFFFFF}
+A.txt:active {color:#FFFFFF}
+A.txt:hover {color:#AAAAAA}
+A.txtg:link {color:#AAAAAA}
+A.txtg:visited {color:#AAAAAA}
+A.txtg:active {color:#AAAAAA}
+A.txtg:hover {color:#FFFFFF}
+INPUT.s180 {width: 180px}
+INPUT.s200 {width: 200px}
+TD {font-family:Verdana,Arial;font-size:10pt}
+TD.margetop {height:16px}
+TABLE.specialtable {background-color:#252525}
+.normal {font-family:Verdana,Arial;font-size:10pt}
+.aslink {color:#FF8040}
+.discreet {color:#808080}
+.errmsg {font-weight:bold;color:#4080FF;font-size:10pt}
+.title2 {font-size:12pt;font-weight:bold;color:#FF8040}
+.title4 {font-size:14.5pt;font-weight:bold;color:#FF8040}
+.title5 {font-size:18pt;font-weight:bold;color:#FF8040}
+.title6 {font-size:24pt;font-weight:bold;color:#FF8040}
+.alttitle5 {font-size:18pt;font-weight:bold;font-style:italic;color:#4080FF}
+.quote4 {font-size:14.5pt;font-weight:bold;font-style:italic;color:#FF8040}
+.quote5 {font-size:18pt;font-weight:bold;font-style:italic;color:#FF8040}
+.date {font-size:7.5pt;color:#FF8040}
+.smtxt {font-size:7.5pt}
+.mdtxt {font-size:12pt}
+.list {font-size:12pt;font-weight:bold}
+.menutop {font-size:7.5pt}
+.menubottom {font-size:7.5pt}
+.smerr {font-size:7.5pt;font-weight:bold;color:#0080FF}
+</STYLE>
+</HEAD>
+
+<BODY bgcolor="#000000" text="#FFFFFF" link="#FF8040" vlink="#FF8040" alink="#FF8040" topmargin=0 leftmargin=0 marginwidth=0 marginheight=0>
+
+<TABLE border="0" cellpadding="0" cellspacing="0" width="780">
+	<TR> 
+		<TD width="130" rowspan="3" valign="top" background="/skins/tonic_xmas/pictures/bar.gif">
+			<IMG src="/skins/tonic_xmas/pictures/bar_title.gif" width="130" height="85" alt="non clickable zone ! =)"><BR>
+			<A href="/skin/tonic_xmas/index.html"><IMG src="/skins/tonic_xmas/pictures/bar_news.gif" BORDER="0" width="130" height="24" alt="NEWS - all the news"></A><BR><A
+			href="/skin/tonic_xmas/people/birthdays.html"><IMG SRC="/skins/tonic_xmas/pictures/bar_people.gif" border="0" width="130" HEIGHT="24" alt="PEOPLE - chip-endales (and some sparc-girls)"></A><BR><A
+			href="/skin/tonic_xmas/parties/index.html"><IMG src="/skins/tonic_xmas/pictures/bar_parties.gif" BORDER="0" width="130" height="24" alt="PARTIES - here are incoming parties and parties reviews"></A><BR><A
+			href="/skin/tonic_xmas/piclib/index.html"><IMG src="/skins/tonic/pictures/bar_download.gif" BORDER="0" width="130" height="24" alt="DOWNLOAD - you'll see"></A><BR>
+			<BR>
+			<A href="/skin/tonic_xmas/charts/index.html"><IMG src="/skins/tonic/pictures/bar_charts.gif" border="0" width="130" height="24" alt="CHARTS - real time charts !"></A><BR>
+			<A href="/skin/tonic_xmas/misc.html"><IMG src="/skins/tonic_xmas/pictures/bar_misc.gif" border="0" width="130" height="24" alt="MISC - hard to explain"></A><BR>
+			<A href="/skin/tonic_xmas/soon.html"><IMG src="/skins/tonic_xmas/pictures/bar_forums.gif" border="0" width="130" height="24" alt="FORUM - chat !"></A><BR>
+			<BR>
+			<A href="/skin/tonic_xmas/links/links.html"><IMG src="/skins/tonic_xmas/pictures/bar_links.gif" BORDER="0" width="130" height="24" alt="LINKS - really need an explanation ?"></A><BR><A
+			href="/skin/tonic_xmas/faq.html"><IMG src="/skins/tonic_xmas/pictures/bar_faq.gif" border="0" WIDTH="130" height="24" alt="FAQ - STOP asking us questions ! read this rubric instead..."></A><BR><A
+			HREF="/skin/tonic_xmas/credits.html"><IMG src="/skins/tonic_xmas/pictures/bar_credits.gif" BORDER="0" width="130" height="24" alt="CREDITS - go ! go ! go !"></A><BR>
+			<BR><BR><BR><BR>
+		</TD>
+		<TD width="640" colspan=2></TD>
+	</TR> 
+	<TR> 
+		<TD width="10">&nbsp;</TD>
+		<TD valign="top" width="640">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+
+preloadImages();
+
+function newImage(arg) {
+	if (document.images) {
+		rslt = new Image();
+		rslt.src = arg;
+		return rslt;
+	}
+}
+
+function changeImages() {
+	if (document.images && (preloadFlag == true)) {
+		for (var i=0; i<changeImages.arguments.length; i+=2) {
+			document[changeImages.arguments[i]].src = changeImages.arguments[i+1];
+		}
+	}
+}
+
+var preloadFlag = false;
+function preloadImages() {
+	if (document.images) {
+		nectarine_02_over = newImage("/skins/tonic/nectarine/images/nectarine_02-over.gif");
+		nectarine_02_down = newImage("/skins/tonic/nectarine/images/nectarine_02-down.gif");
+		nectarine_03_over = newImage("/skins/tonic/nectarine/images/nectarine_03-over.gif");
+		nectarine_03_down = newImage("/skins/tonic/nectarine/images/nectarine_03-down.gif");
+		nectarine_04_nectarine_03_down = newImage("/skins/tonic/nectarine/images/nectarine_04-nectarine_03_d.gif");
+		nectarine_04_over = newImage("/skins/tonic/nectarine/images/nectarine_04-over.gif");
+		nectarine_04_down = newImage("/skins/tonic/nectarine/images/nectarine_04-down.gif");
+		nectarine_08_nectarine_02_over = newImage("/skins/tonic/nectarine/images/nectarine_08-nectarine_02_o.gif");
+		nectarine_11_nectarine_02_over = newImage("/skins/tonic/nectarine/images/nectarine_11-nectarine_02_o.gif");
+		nectarine_12_nectarine_02_over = newImage("/skins/tonic/nectarine/images/nectarine_12-nectarine_02_o.gif");
+		preloadFlag = true;
+	}
+}
+
+// -->
+</SCRIPT>
+<br>
+<br>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 width="576">
+	<TR> 
+		<TD> <IMG SRC="/skins/tonic/nectarine/images/spacer.gif" WIDTH=22 HEIGHT=1></TD>
+		<TD> <IMG SRC="/skins/tonic/nectarine/images/spacer.gif" WIDTH=193 HEIGHT=1></TD>
+		<TD> <IMG SRC="/skins/tonic/nectarine/images/spacer.gif" WIDTH=109 HEIGHT=1></TD>
+		<TD> <IMG SRC="/skins/tonic/nectarine/images/spacer.gif" WIDTH=123 HEIGHT=1></TD>
+		<TD> <IMG SRC="/skins/tonic/nectarine/images/spacer.gif" WIDTH=34 HEIGHT=1></TD>
+		<TD> <IMG SRC="/skins/tonic/nectarine/images/spacer.gif" WIDTH=81 HEIGHT=1></TD>
+		<TD> <IMG SRC="/skins/tonic/nectarine/images/spacer.gif" WIDTH=7 HEIGHT=1></TD>
+		<TD> <IMG SRC="/skins/tonic/nectarine/images/spacer.gif" WIDTH=14 HEIGHT=1></TD>
+	</TR>
+	<TR> 
+		<TD COLSPAN=2> <IMG SRC="/skins/tonic/nectarine/images/nectarine_01.gif" WIDTH=215 HEIGHT=22></TD>
+		<TD> <A HREF="/skin/tonic_xmas/nectarine/how.htm"
+			   ONMOUSEOVER="changeImages('nectarine_02', '/skins/tonic/nectarine/images/nectarine_02-over.gif', 'nectarine_08', '/skins/tonic/nectarine/images/nectarine_08-nectarine_02_o.gif', 'nectarine_11', '/skins/tonic/nectarine/images/nectarine_11-nectarine_02_o.gif', 'nectarine_12', '/skins/tonic/nectarine/images/nectarine_12-nectarine_02_o.gif'); return true;"
+			   ONMOUSEOUT="changeImages('nectarine_02', '/skins/tonic/nectarine/images/nectarine_02.gif', 'nectarine_08', '/skins/tonic/nectarine/images/nectarine_08.gif', 'nectarine_11', '/skins/tonic/nectarine/images/nectarine_11.gif', 'nectarine_12', '/skins/tonic/nectarine/images/nectarine_12.gif'); return true;"
+			   ONMOUSEDOWN="changeImages('nectarine_02', '/skins/tonic/nectarine/images/nectarine_02-down.gif'); return true;"
+			   ONMOUSEUP="changeImages('nectarine_02', '/skins/tonic/nectarine/images/nectarine_02-over.gif'); return true;" target="_self"> 
+			<IMG NAME="nectarine_02" SRC="/skins/tonic/nectarine/images/nectarine_02.gif" WIDTH=109 HEIGHT=22 BORDER=0 alt="How to listen Nectarine Radio ?"></A></TD>
+		<TD> <A HREF="/skin/tonic_xmas/nectarine/playing.htm"
+			   ONMOUSEOVER="changeImages('nectarine_03', '/skins/tonic/nectarine/images/nectarine_03-over.gif', 'nectarine_08', '/skins/tonic/nectarine/images/nectarine_08-nectarine_02_o.gif', 'nectarine_11', '/skins/tonic/nectarine/images/nectarine_11-nectarine_02_o.gif', 'nectarine_12', '/skins/tonic/nectarine/images/nectarine_12-nectarine_02_o.gif'); return true;"
+			   ONMOUSEOUT="changeImages('nectarine_03', '/skins/tonic/nectarine/images/nectarine_03.gif', 'nectarine_04', '/skins/tonic/nectarine/images/nectarine_04.gif', 'nectarine_08', '/skins/tonic/nectarine/images/nectarine_08.gif', 'nectarine_11', '/skins/tonic/nectarine/images/nectarine_11.gif', 'nectarine_12', '/skins/tonic/nectarine/images/nectarine_12.gif'); return true;"
+			   ONMOUSEDOWN="changeImages('nectarine_03', '/skins/tonic/nectarine/images/nectarine_03-down.gif', 'nectarine_04', '/skins/tonic/nectarine/images/nectarine_04-nectarine_03_d.gif'); return true;"
+			   ONMOUSEUP="changeImages('nectarine_03', '/skins/tonic/nectarine/images/nectarine_03-over.gif', 'nectarine_04', '/skins/tonic/nectarine/images/nectarine_04.gif'); return true;" target="_self"> 
+			<IMG NAME="nectarine_03" SRC="/skins/tonic/nectarine/images/nectarine_03.gif" WIDTH=123 HEIGHT=22 BORDER=0 alt="what is playing now ?"></A></TD>
+		<TD COLSPAN=4> <A HREF="/skin/tonic_xmas/nectarine/playlist0.htm"
+			   ONMOUSEOVER="changeImages('nectarine_04', '/skins/tonic/nectarine/images/nectarine_04-over.gif', 'nectarine_08', '/skins/tonic/nectarine/images/nectarine_08-nectarine_02_o.gif', 'nectarine_11', '/skins/tonic/nectarine/images/nectarine_11-nectarine_02_o.gif', 'nectarine_12', '/skins/tonic/nectarine/images/nectarine_12-nectarine_02_o.gif'); return true;"
+			   ONMOUSEOUT="changeImages('nectarine_04', '/skins/tonic/nectarine/images/nectarine_04.gif', 'nectarine_08', '/skins/tonic/nectarine/images/nectarine_08.gif', 'nectarine_11', '/skins/tonic/nectarine/images/nectarine_11.gif', 'nectarine_12', '/skins/tonic/nectarine/images/nectarine_12.gif'); return true;"
+			   ONMOUSEDOWN="changeImages('nectarine_04', '/skins/tonic/nectarine/images/nectarine_04-down.gif'); return true;"
+			   ONMOUSEUP="changeImages('nectarine_04', '/skins/tonic/nectarine/images/nectarine_04-over.gif'); return true;" target="_self"> 
+			<IMG NAME="nectarine_04" SRC="/skins/tonic/nectarine/images/nectarine_04.gif" WIDTH=136 HEIGHT=22 BORDER=0 alt="Want to request a song ?"></A></TD>
+	</TR>
+	<TR> 
+		<TD COLSPAN=8> <IMG SRC="/skins/tonic/nectarine/images/nectarine_05.gif" WIDTH=583 HEIGHT=19></TD>
+	</TR>
+	<TR> 
+		<TD COLSPAN=2> <IMG SRC="/skins/tonic/nectarine/images/nectarine_06.gif" WIDTH=215 HEIGHT=60 alt="Nectarine is an Orange Juice production"></TD>
+		<TD COLSPAN=6 bgcolor="#000000"> 
+			<center>
+				<font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FF9900"><strong>Playlist 
+				&amp; Requests<br>
+				</strong>[Last updated on 29/09/2000]</font>
+</center>
+		</TD>
+	</TR>
+	<TR> 
+		<TD COLSPAN=8> <IMG NAME="nectarine_08" SRC="/skins/tonic/nectarine/images/nectarine_08.gif" WIDTH=583 HEIGHT=61></TD>
+	</TR>
+	<TR bgcolor="#000000"> 
+		<TD COLSPAN=8> 
+			<center>
+				<font color="#FFFFFF"> </font> 
+				<div align="center"> 
+					<center>
+						<div align="center">
+							<center>
+								<br>
+							</center>
+						</div>
+						<p align="center"><font color="#FFFF00"><a href="/skin/tonic_xmas/nectarine/0_9playlist.htm"><font size="2">0..9 
+							</font></a><font size="2">,<a
+href="/skin/tonic_xmas/nectarine/Aplaylist.htm"> A </a>, <a href="/skin/tonic_xmas/nectarine/Bplaylist.htm">B </a>, <a href="/skin/tonic_xmas/nectarine/Cplaylist.htm">C 
+							</a>, <a
+href="/skin/tonic_xmas/nectarine/Dplaylist.htm">D </a>, <a href="/skin/tonic_xmas/nectarine/Eplaylist.htm">E </a>, <a href="/skin/tonic_xmas/nectarine/Fplaylist.htm">F 
+							</a>, <a
+href="/skin/tonic_xmas/nectarine/Gplaylist.htm">G </a>, <a href="/skin/tonic_xmas/nectarine/Hplaylist.htm">H </a>, <a href="/skin/tonic_xmas/nectarine/Iplaylist.htm">I 
+							</a>, <a
+href="/skin/tonic_xmas/nectarine/Jplaylist.htm">J </a>, <a href="/skin/tonic_xmas/nectarine/Kplaylist.htm">K </a>, <a href="/skin/tonic_xmas/nectarine/Lplaylist.htm">L 
+							</a>, <a
+href="/skin/tonic_xmas/nectarine/Mplaylist.htm">M </a>, <a href="/skin/tonic_xmas/nectarine/Nplaylist.htm">N </a>, <a href="/skin/tonic_xmas/nectarine/Oplaylist.htm">O 
+							</a>, <a
+href="/skin/tonic_xmas/nectarine/Pplaylist.htm">P </a>, <a href="/skin/tonic_xmas/nectarine/Qplaylist.htm">Q </a>, <a href="/skin/tonic_xmas/nectarine/Rplaylist.htm">R 
+							</a>, <a
+href="/skin/tonic_xmas/nectarine/Splaylist.htm">S </a>, <a href="/skin/tonic_xmas/nectarine/Tplaylist.htm">T </a>, <a href="/skin/tonic_xmas/nectarine/Uplaylist.htm">U 
+							</a>,<a
+href="/skin/tonic_xmas/nectarine/Vplaylist.htm">V </a>, <a href="/skin/tonic_xmas/nectarine/Wplaylist.htm">W </a>, <a href="/skin/tonic_xmas/nectarine/Xplaylist.htm">X</a>, 
+							<a
+href="/skin/tonic_xmas/nectarine/Yplaylist.htm">Y </a>, <a href="/skin/tonic_xmas/nectarine/Zplaylist.htm">Z</a></font></font></p>
+						<div align="center">
+							<center>
+								<table border="0" width="98%" cellspacing="1">
+									<tr> 
+										<td align="center" bgcolor="#FF9933" width="16%"><font color="#FFFF00">No</font></td>
+										<td align="center" bgcolor="#FF9933" width="44%"><font color="#FFFF00">Artist 
+											- Title</font></td>
+										<td align="center" bgcolor="#FF9933" width="17%"><font color="#FFFF00">Request</font></td>
+										<td align="center" bgcolor="#FF9933" width="23%"><font color="#FFFF00">Time</font></td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>1</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SADHU!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">5:07</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>2</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SADO_GOREDON!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">5:50</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>3</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SAL!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:41</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>4</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SALCON!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:30</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>5</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>sanxionm</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">5:34</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>6</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Sape / Cheddar - Lenttokone</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:59</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>7</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SARAH!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:29</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>8</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SATELL!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:48</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>9</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SAVAGE -</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:24</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>10</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Scoopex-GONADSCR!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:02</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>11</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SEA_OF_LOVE!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:42</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>12</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SEEING_IS_BEL-MAIN!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:52</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>13</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SEQTOM!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">6:04</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>14</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Shad_and_Mario_PULSE-SQUADEMO!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:59</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>15</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Shad-Pulse_COSMOS!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:15</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>16</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SHARE_AND_ENJOY!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:09</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>17</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SHARK!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:56</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>18</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SHIVAN_DRAGON!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:17</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>19</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SHOCK!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">6:04</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>20</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SHOCK_THERAPY-01!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:38</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>21</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SHOCK_THERAPY-02!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:42</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>22</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SHOCK_THERAPY-03!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:46</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>23</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SHOCK_THERAPY-04!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:23</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>24</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SHOCK_THERAPY-05!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:33</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>25</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SHOCK_THERAPY-06!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:33</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>26</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SHOCK_THERAPY-07!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:26</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>27</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SHOCK_THERAPY-08!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:15</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>28</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SHOCK_THERAPY-09!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:31</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>29</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SHOCK_THERAPY-10!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:38</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>30</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SHOCK_THERAPY-12!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:38</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>31</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SHOCK_THERAPY-13!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:38</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>32</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SHOCK_THERAPY-14!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:12</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>33</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SHOCK_THERAPY-15!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:48</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>34</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SHOCK_THERAPY-16!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:46</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>35</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SidStation_Mekka_Symposium_2000_Presentation</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">15:27</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>36</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>sierra / destiny / azure - Supermodel - Remix</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">8:07</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>37</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SIKKE_EN_RUMLEN!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:35</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>38</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>silence - bmp - k.b. 4.10.1994, Stb. 720</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:05</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>39</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>silence, raiser & appelzap - guardian angel</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:03</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>40</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Simm-Analogue_MODELZero!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:17</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>41</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Simon V - Screwdriver</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">6:08</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>42</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SINUS-KK</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:45</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>43</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Siren_Eclipse_Bassprod-INDIGO!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:39</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>44</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>sirius / BoomBass Records - hidden star</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">5:19</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>45</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SirPsycho / PoPsY TeAm - The Kick</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:39</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>46</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Skal_Bomb-Hard_ROX!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:25</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>47</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Skal_GROOVY!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:38</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>48</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Skaven_FuturCrew_AMAZONAS!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:43</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>49</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Skaven_FuturCrew_ID!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:23</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>50</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Skaven_FuturCrew_MANGROVE!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:39</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>51</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Skaven_FuturCrew-Rama_Gardens_v1-1!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:51</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>52</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Skaven-Futurcrew_CAPTURED!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:37</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>53</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SKIDROW!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:38</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>54</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>skybax - Frozen</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:21</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>55</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>skybax - Frozen</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:21</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>56</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>skybax - Paroxysm</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:57</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>57</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SKYMAN~1!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:29</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>58</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Skyrunner - Weltfrieden ???</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:10</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>59</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SLAP_IT!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:13</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>60</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Slaughter_Exmortis-TZR_100!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">5:01</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>61</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>sleepy - foob</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">7:12</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>62</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SMOKIN'_BLUES!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:28</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>63</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SMURFBYN</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:55</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>64</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SNAKE_DANCE!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:21</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>65</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>snarecrk</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:56</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>66</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>snarehis</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:08</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>67</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>snarelo</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:55</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>68</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>snareprl</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:19</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>69</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>snaret</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:16</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>70</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SOFTLY_ENDED!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:46</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>71</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Some_and_Prime-Razor1911_CHIPJAZZ!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:03</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>72</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Some1_Prime_SCOOPEX-PIP1!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:24</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>73</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Some1_Prime_SCOOPEX-PIP5!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:25</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>74</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Some1_Prime_SCOOPEX-PIP6-2!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:02</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>75</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Some1-Razor1911_BAJS!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:09</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>76</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Some1-Razor1911_CATCHTHE!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:59</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>77</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SOMMERPA</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:49</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>78</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SONATE_TO_HER!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">6:24</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>79</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Sonic - Believe</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:25</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>80</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SONIC!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:37</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>81</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SONIC_CITY!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:32</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>82</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Soul-DCS_APPLEBOMB!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:49</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>83</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Sould-DCS_DUSTOFC!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:13</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>84</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Sound Killer_jungle!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:54</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>85</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SPANTOBI</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:27</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>86</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SPASSER - Hello World</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:00</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>87</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SPEED_RULES!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:57</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>88</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Spektor - Psychodelica</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">6:43</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>89</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>sphercrk</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:24</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>90</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>spherdrc</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:39</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>91</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>sphermcd</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:13</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>92</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>sphermer</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:44</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>93</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>sphermon</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:18</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>94</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>sphersp1</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:41</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>95</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>sphersp2</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:21</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>96</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>spherspd</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:27</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>97</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Spirou_Silents-mad_donkey!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:01</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>98</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Spirou_Silents-obscene_illusion!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:41</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>99</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SPLEEN_&_IDEAL!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:19</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>100</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>spyhunt</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:03</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>101</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>stanley/trinity - in ashes of deception</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:17</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>102</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Stargazer_Complex-Syfuid_long!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:32</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>103</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>STARSHIP!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:57</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>104</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>STARWORX!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:48</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>105</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>STATIC_BYTE_SHORT!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:45</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>106</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>STEFFO_A</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:58</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>107</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Steffo_and_Tito_Loco!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">5:17</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>108</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>stormlog</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">9:19</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>109</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>stormlot</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">6:34</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>110</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Strawinski / Interlaced Bytes - Nuke Your Destiny</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:27</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>111</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Strobo-Stellar_DALLAS!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:31</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>112</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Stryk - Neurotoxic</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:05</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>113</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>subi - fridge bastard</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:06</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>114</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>subi - gravity-chick (edit)</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:35</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>115</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>subi - intro</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:24</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>116</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>subi - manicandustrial (virtual edit)</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">5:09</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>117</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>subi - mario theme (miyamotonian rmx)</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">5:01</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>118</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Subi - Mnotmo'vo'non (4minpopsongmix)</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:58</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>119</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>subi - schrike (edit)</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">5:08</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>120</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>subi - sukcorperatdik</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:57</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>121</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>subi - uthfkisubi (manchester remix)</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">5:22</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>122</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>subi - var 4rom earf</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:36</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>123</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>subi - wannabe (spiceman mix)</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:33</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>124</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>subi - whirld0minaschaan</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:09</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>125</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>subi - wyrchyk</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">5:49</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>126</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>substance - learning to rock</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:39</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>127</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Substance/Mono 211+Dcs - Believe In Blue</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:57</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>128</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Substance/Mono211 - Beat For Me</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">5:17</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>129</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Substance-Illusion_ABSOLUTE40!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:44</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>130</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SUDDEN_IMPACT!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:42</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>131</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>sulphur-orange_alien_ate_my_bong</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:58</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>132</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>sulphur-orange_compost</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:48</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>133</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>sulphur-orange_tohtori_tilaisin_taksin</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:48</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>134</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SUNFLOW_!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">5:13</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>135</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>super science - we're like air..</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:35</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>136</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SUPER!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:24</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>137</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SUPEROUTRUN!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:17</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>138</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SURPRISE_SURPRISE!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:54</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>139</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>sushi brother - lionfish</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:47</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>140</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Sushi Brother - Shadowfighter</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:14</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>141</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>sushi brother - shadowfighter (frank b remix)</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">5:06</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>142</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Swallow_and_Illusion-Doomsday_ELEKTRON!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:43</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>143</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Swallow-Doomsday_GUGGLEME!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:45</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>144</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>Swallow-Illusion_BOOST!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:43</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>145</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SWEET_DAY!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:54</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>146</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SYLVIA'S_THEME!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:55</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>147</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>SYNTAX_TERROR!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:25</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>148</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>synth ethic - angstpop 01</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:24</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>149</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>synth ethic - angstpop 02</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:32</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>150</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>synth ethic - bomb my soul</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:33</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>151</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>synth ethic - bruce attak</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:33</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>152</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>synth ethic - bug march</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:07</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>153</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>synth ethic - chinese deaf cats</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:43</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>154</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>synth ethic - elven eleven intro</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:47</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>155</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>synth ethic - laukkupolskamies</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:27</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>156</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>synth ethic - lichees</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:21</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>157</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>synth ethic - love-ya!</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:44</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>158</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>synth ethic - low bounding sky - synthversio</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:51</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>159</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>synth ethic - moerkerdans i karatehuset</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:04</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>160</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>synth ethic - ram</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:25</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>161</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>synth ethic - ravergirlz remix</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:46</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>162</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>synth ethic - riding halley</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:43</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>163</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>synth ethic - sds tp7 report</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:39</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>164</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>synth ethic - snabbmakaroner</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:33</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>165</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>synth ethic - sushi kingdom</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:38</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>166</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>synth ethic - synth luder</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:42</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>167</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>synth ethic - waterchute</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:35</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+								</table>
+								<br>
+							</center>
+						</div>
+						<p align="center"><font color="#FFFF00"><a href="/skin/tonic_xmas/nectarine/0_9playlist.htm"><font size="2">0..9 
+							</font></a><font size="2">,<a
+href="/skin/tonic_xmas/nectarine/Aplaylist.htm"> A </a>, <a href="/skin/tonic_xmas/nectarine/Bplaylist.htm">B </a>, <a href="/skin/tonic_xmas/nectarine/Cplaylist.htm">C 
+							</a>, <a
+href="/skin/tonic_xmas/nectarine/Dplaylist.htm">D </a>, <a href="/skin/tonic_xmas/nectarine/Eplaylist.htm">E </a>, <a href="/skin/tonic_xmas/nectarine/Fplaylist.htm">F 
+							</a>, <a
+href="/skin/tonic_xmas/nectarine/Gplaylist.htm">G </a>, <a href="/skin/tonic_xmas/nectarine/Hplaylist.htm">H </a>, <a href="/skin/tonic_xmas/nectarine/Iplaylist.htm">I 
+							</a>, <a
+href="/skin/tonic_xmas/nectarine/Jplaylist.htm">J </a>, <a href="/skin/tonic_xmas/nectarine/Kplaylist.htm">K </a>, <a href="/skin/tonic_xmas/nectarine/Lplaylist.htm">L 
+							</a>, <a
+href="/skin/tonic_xmas/nectarine/Mplaylist.htm">M </a>, <a href="/skin/tonic_xmas/nectarine/Nplaylist.htm">N </a>, <a href="/skin/tonic_xmas/nectarine/Oplaylist.htm">O 
+							</a>, <a
+href="/skin/tonic_xmas/nectarine/Pplaylist.htm">P </a>, <a href="/skin/tonic_xmas/nectarine/Qplaylist.htm">Q </a>, <a href="/skin/tonic_xmas/nectarine/Rplaylist.htm">R 
+							</a>, <a
+href="/skin/tonic_xmas/nectarine/Splaylist.htm">S </a>, <a href="/skin/tonic_xmas/nectarine/Tplaylist.htm">T </a>, <a href="/skin/tonic_xmas/nectarine/Uplaylist.htm">U 
+							</a>,<a
+href="/skin/tonic_xmas/nectarine/Vplaylist.htm">V </a>, <a href="/skin/tonic_xmas/nectarine/Wplaylist.htm">W </a>, <a href="/skin/tonic_xmas/nectarine/Xplaylist.htm">X</a>, 
+							<a
+href="/skin/tonic_xmas/nectarine/Yplaylist.htm">Y </a>, <a href="/skin/tonic_xmas/nectarine/Zplaylist.htm">Z</a></font></font></p>
+					</center>
+				</div>
+			</center>
+			<p><IMG NAME="nectarine_12" SRC="/skins/tonic/nectarine/images/nectarine_12.gif" WIDTH=583 HEIGHT=55></p>
+			</TD>
+	</TR>
+	<TR> 
+		<TD COLSPAN=5 ROWSPAN=2> <IMG SRC="/skins/tonic/nectarine/images/nectarine_13.gif" WIDTH=481 HEIGHT=46></TD>
+		<TD COLSPAN=2> <IMG SRC="/skins/tonic/nectarine/btnnecta.gif" WIDTH=88 HEIGHT=32></TD>
+		<TD ROWSPAN=2> <IMG SRC="/skins/tonic/nectarine/images/nectarine_15.gif" WIDTH=14 HEIGHT=46></TD>
+	</TR>
+	<TR> 
+		<TD COLSPAN=2 height="15"> <IMG SRC="/skins/tonic/nectarine/images/nectarine_16.gif" WIDTH=88 HEIGHT=14></TD>
+	</TR>
+</TABLE>
+<p>		</TD>
+	</TR>
+	<TR> 
+		<TD width="10">&nbsp;</TD>
+		<TD width="640" valign="bottom"><FONT class=menubottom><BR><BR>[ <A href="/skin/tonic_xmas/index.html">&gt;NEWS</A> /
+<A href="/skin/tonic_xmas/people/birthdays.html">&gt;PEOPLE</A> /
+<A href="/skin/tonic_xmas/parties/index.html">&gt;PARTIES</A> /
+<A href="/skin/tonic_xmas/charts/index.html">&gt;CHARTS</A> /
+<A href="/skin/tonic_xmas/misc.html">&gt;MISC</A> /
+<A href="/skin/tonic_xmas/soon.html">&gt;FORUMS</A> /
+<A href="/skin/tonic_xmas/links/links.html">&gt;LINKS</A> /
+<A href="/skin/tonic_xmas/faq.html">&gt;FAQ</A> /
+<A href="/skin/tonic_xmas/credits.html">&gt;CREDITS</A> ]<BR>
+</FONT> 
+<HR size="1" align="left"></FONT></TD>
+	</TR>
+</TABLE>
+<SCRIPT src="/js/oj.js"></SCRIPT>
+</BODY>
+</HTML></p>
+
