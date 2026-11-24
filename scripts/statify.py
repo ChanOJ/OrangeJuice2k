@@ -1016,8 +1016,7 @@ class Site:
             if "@" not in v:
                 return "..."
             local, domain = v.split("@", 1)
-            stars = local[0] + "*" * (len(local) - 2) + local[-1] if len(local) > 2 else "*" * len(local)
-            return html_encode(stars) + "@" + (MASK if hidden else html_encode(domain.strip()))
+            return html_encode(star_local(local)) + "@" + (MASK if hidden else html_encode(domain.strip()))
 
         def birth(r, fmt):
             md = (r["birthmd"] or "").strip()
@@ -1458,7 +1457,7 @@ class Site:
         text = re.sub(r"(?is)<!--\s*AudioRealm banner code.*?End AudioRealm Banner Code\s*-->", "", text)
         text = re.sub(r"(?is)<script\b[^>]*>(?:(?!</script).)*document\.write\((?:(?!</script).)*https?://(?!(?:www\.)?ojuice\.net)"
                       r"(?:(?!</script).)*</script\s*>", "", text)
-        text = redact_emails(text)
+        text = redact_emails(text, pg.path.startswith(STAR_SECTIONS))
         text = self.rewrite_links(text, pg)
         text = self.sweep_own_host(text, pg)
         text = mask_ips(text, self.private_ips)
@@ -1808,7 +1807,14 @@ def keep_email_whole(local, family_names=()):
     return not any(len(f) >= 3 and f in n for f in map(norm_name, family_names))
 
 
-def redact_emails(text):
+STAR_SECTIONS = ("/people/", "/groups/", "/interviews/", "/parties/")   # owner decision 2026-11-24: too many to sort by hand
+
+
+def star_local(local):
+    return local[0] + "*" * (len(local) - 2) + local[-1] if len(local) > 2 else "*" * len(local)
+
+
+def redact_emails(text, stars=False):
     """mailto: links of truncated addresses become their label; every local@domain whose local part
     holds a family name becomes local@????, the others stay complete (links included)."""
     def anchor(m):
@@ -1818,6 +1824,10 @@ def redact_emails(text):
             kept = re.sub(r"(?i)(mailto:\s*[^\"'?>\s]+)\?[^\"'>]*", r"\1", m.group(0))   # no pre-filled subject
             return re.sub(r"(?i)mailto:", "\x00MT\x00", kept)
         return m.group(1)
+    if stars:       # every address: first and last letter of the local part, complete domain, no mailto link
+        text = MAILTO_A_RE.sub(lambda m: m.group(1), text)
+        text = re.sub(r"(?i)mailto:", "", text)
+        return re.sub(r"(?<!\*)" + EMAIL_RE.pattern, lambda m: star_local(m.group(1)) + "@" + m.group(2), text)
     text = MAILTO_A_RE.sub(anchor, text)
     text = re.sub(r"(?i)mailto:", "", text)
     text = text.replace("\x00MT\x00", "mailto:")

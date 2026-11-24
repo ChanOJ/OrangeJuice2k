@@ -166,7 +166,7 @@ dropped elements in `build-meta/dropped.tsv`.
   the people table (the local part contains the owner's last name) or the reviewed list
   `private/email-family.txt` (git-ignored: it names real people); sheets of people who asked to hide
   their address always show `local@????`. Everywhere, including news, interviews and links pages, except the
-  people sheets: too many addresses to review, so every address there is shown as first letter, asterisks, last
+  people, groups, interviews and parties pages: too many addresses to review, so every address there is shown as first letter, asterisks, last
   letter of the local part and the complete domain (`l******t@domain.com`; `@????` kept for hidden ones).
 - Removal footer ("To be removed from this page, contact me."): pages that show a family name
   (people sheets with a last name, interviews, credits) or an address truncated as above
