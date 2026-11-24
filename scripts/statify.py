@@ -1416,6 +1416,8 @@ class Site:
             rest = m.group(3) or "/"
             if host in CROSS_HOSTS and rest in ("/", "") and not port:
                 return CROSS_HOSTS[host], "cross"          # another archive of the family
+            if host == "ojuice.citeweb.net" and not port:     # an old address of this site, kept with its path
+                return "https://orangejuice99.sauthier.family" + ("" if rest == "/" else rest) + "/" * (rest == "/"), "cross"
             if host in OWN_HOSTS and port not in (None, "80"):
                 return url, "external"                       # the radio streams (:8000): dead, kept as written
             if host in OWN_HOSTS:

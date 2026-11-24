@@ -301,7 +301,6 @@ If the apply rejects an edge rule, the 404 path or the Edge Script, set it by ha
 
 Cross-links still to decide (hosts of the family whose archive path is not certain; their `href`s are kept as written, a click may fail):
 
-- `ojuice.citeweb.net` (4 links, news pages 56 to 59): Citeweb97 or Citeweb98 (https://citeweb97.sauthier.family, https://citeweb98.sauthier.family).
 - `mmts.ojuice.net` (2 links, news page 15 and 22), `www.ojuice.org` (1 link, news page 38), `ojuice.e-actu.net` (text only, article 1068).
 
-Done on 2026-11-24: `ltp.ojuice.net` to LTP4 (https://ltp4.sauthier.family) and `ltp.planet-d.net` to LTP3 (https://ltp3.sauthier.family), host-only links; `ojuice.planet-d.net` and `www.ojuice.net` to this site's own pages (as `ojuice.net`; the radio streams on port 8000 stay as written).
+Done on 2026-11-24: `ltp.ojuice.net` to LTP4 (https://ltp4.sauthier.family) and `ltp.planet-d.net` to LTP3 (https://ltp3.sauthier.family), host-only links; `ojuice.citeweb.net` to this site (https://orangejuice99.sauthier.family, path kept; most of its old paths do not exist); `ojuice.planet-d.net` and `www.ojuice.net` to this site's own pages (as `ojuice.net`; the radio streams on port 8000 stay as written).
