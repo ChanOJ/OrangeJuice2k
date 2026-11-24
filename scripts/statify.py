@@ -58,20 +58,27 @@ PERPAGE_NEWS = 20              # oj_listnews: 20 news per page
 PERPAGE_PICS = 10              # piclib/index.asp PERPAGE
 VISITS_FROZEN = "1042"         # $$VISITS$$ (cnxweb counter DB, not preserved): last value seen in the Wayback Machine (2000-11-15)
 STAFF_IDS = (145, 1123)        # charts/results.asp leaves the two webmasters out of the "news writers" top
-OWN_HOSTS = ("www.ojuice.net", "ojuice.net")
-# Third-party ad / tracking / song-request services: links unwrapped, scripts and images removed
-DEAD_HOSTS = ("audiorealm.com", "cnxweb.com", "extreme-dm.com", "mirabilis.com")
+OWN_HOSTS = ("www.ojuice.net", "ojuice.net", "ojuice.planet-d.net")   # ojuice.planet-d.net: the site's own first address
+# Cross-links to other archives of the family (README "Cross-links"); only the bare host links are rewritten.
+CROSS_HOSTS = {"ltp.ojuice.net": "https://ltp4.sauthier.family/", "ltp.planet-d.net": "https://ltp3.sauthier.family/"}
+# Third-party ad / tracking / song-request services: links unwrapped, scripts and images removed.
+# ICQ (mirabilis.com) links are kept; only the live presence badge is replaced by a local image (icq_badge).
+# audiorealm.com/spacial/ (the broadcaster software the nectarine pages were made with) is a content link: kept.
+KEEP_DEAD_PREFIXES = ("audiorealm.com/spacial",)
+DEAD_HOSTS = ("audiorealm.com", "cnxweb.com", "extreme-dm.com")
 MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
-# ---- removal-request footer: added to every page that lists or describes people
+# ---- removal-request footer: added to the pages that show a family name, a postal address or an e-mail
+# whose local part is a family name (`local@????`); never on nick-only pages
 REMOVAL_MARK = 'id="removal-note"'
 REMOVAL_NOTE = (
-    '<div id="removal-note" style="clear:both;margin:28px auto 8px;padding:6px 8px 0;width:60%;'
-    'border-top:1px solid #808080;text-align:center;font:10px/14px Verdana,Arial,Helvetica,sans-serif;'
+    '<div id="removal-note" style="clear:both;margin:28px 0 8px;padding:6px 8px 0;width:780px;max-width:96%;'
+    'box-sizing:border-box;border-top:1px solid #808080;text-align:center;font:10px/14px Verdana,Arial,Helvetica,sans-serif;'
     'color:#808080;background:transparent">To be removed from this page, '
-    '<a href="mailto:chandra_oj@pm.me" style="color:#808080;text-decoration:underline">contact me</a>.</div>'
+    '<a href="mailto:chandra_oj&#64;pm.me" style="color:#808080;text-decoration:underline">contact me</a>.</div>'
 )
 _BODY_END = re.compile(r"(?is)</body\s*>(?!.*</body\s*>)")
+TRUNCATED_EMAIL = re.compile(r"(?<![A-Za-z0-9._+-])[A-Za-z0-9._+-]+@\?\?\?\?")
 
 
 def add_removal_note(text):
@@ -82,13 +89,17 @@ def add_removal_note(text):
         return text[: m.start()] + REMOVAL_NOTE + "\n" + text[m.start():]
     return text + "\n" + REMOVAL_NOTE + "\n"
 
-PEOPLE_KINDS = ("people sheet", "people list", "party coming")     # nick sheets, nick lists, party attendee lists
-PEOPLE_PATHS = ("/charts/voters.html", "/credits.html")
-PEOPLE_PREFIXES = ("/interviews/",)
+
+# Pages that show real names without any e-mail (interviews, credits); people sheets decide per sheet
+# (Page.family_name), party attendee lists and the voters list show nicks only.
+FAMILY_NAME_PATHS = ("/credits.html",)
+FAMILY_NAME_PREFIXES = ("/interviews/",)
 
 
-def is_people_page(pg):
-    return pg.kind in PEOPLE_KINDS or pg.path in PEOPLE_PATHS or pg.path.startswith(PEOPLE_PREFIXES)
+def needs_removal_note(pg):
+    if pg.family_name or TRUNCATED_EMAIL.search(pg.text):
+        return True
+    return pg.path in FAMILY_NAME_PATHS or pg.path.startswith(FAMILY_NAME_PREFIXES)
 
 MONTHS_LONG = ["January", "February", "March", "April", "May", "June", "July", "August",
                "September", "October", "November", "December"]
@@ -180,6 +191,17 @@ def html_encode(s):
         return ""
     out = s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
     return re.sub(r"[^\x00-\x7f]", lambda m: "&#%d;" % ord(m.group(0)), out)
+
+
+ICQ_ICONS = ("pictures/icqon.gif", "pictures/icqoff.gif", "pictures/icqdis.gif")   # scripts/assets/ (missing in the tonic skin)
+
+
+def icq_badge(uin, nick, size=18):
+    """The pager link of the original (UIN in its href) around the grey flower ("hidden" badge) hard-coded:
+    the live presence image came from the dead ICQ servers and nothing is requested from them."""
+    return ('<A href="http://wwp.mirabilis.com/scripts/Search.dll?to=%s"><IMG src="/pictures/icqdis.gif" align="top" '
+            'width=%d height=%d border=0 alt="Click here to add %s to your ICQ contact list"></A>'
+            % (uin, size, size, html_encode(nick)))
 
 
 def two(n):
@@ -388,6 +410,16 @@ class Data:
         self._p2000 = out
         return out
 
+    def family_locals(self):
+        """Local parts of the e-mail addresses that contain their owner's family name (people table)."""
+        out = set()
+        for r in self.q("SELECT lastname, email FROM people WHERE email LIKE '%@%' AND lastname IS NOT NULL"):
+            local = r["email"].split("@", 1)[0].strip()
+            ln = norm_name(r["lastname"])
+            if len(ln) >= 3 and ln in norm_name(local):
+                out.add(local.lower())
+        return out
+
     def author(self, id_people, nick=None):
         """nick & Groups_(groups) as shown in 2000 (nicklist label, 16-character cuts restored when
         possible; nick alone when unknown)."""
@@ -433,6 +465,8 @@ class Page:
         self.old_url = old_url    # URL the page had on www.ojuice.net (base of its relative links)
         self.text = text
         self.kind = kind
+        self.family_name = False  # the page shows a family name (set by the renderer that knows)
+        self.title = None         # <title> chosen by the renderer (else derived by page_title)
 
 
 class Site:
@@ -466,10 +500,12 @@ class Site:
         self.private_ips = private_ips(self.raw)
 
     # ---------------------------------------------------------------- helpers
-    def add(self, path, old_url, text, kind, old_forms=()):
+    def add(self, path, old_url, text, kind, old_forms=(), title=None, family_name=False):
         if path in self.pages:
             raise RuntimeError("output collision: " + path)
         self.pages[path] = Page(path, old_url, text, kind)
+        self.pages[path].title = title
+        self.pages[path].family_name = family_name
         self.counts[kind] = self.counts.get(kind, 0) + 1
         for o in old_forms:
             self.urlmap.setdefault(o, path)
@@ -734,7 +770,7 @@ class Site:
                                                      for x in labels])
             buf = self.cpl(buf.replace("$$NB$$", str(len(labels))), "/parties/")
             self.add("/parties/coming-%d.html" % pid, "/parties/coming.asp?p=%d" % pid, buf, "party coming",
-                     ("/parties/coming.asp?p=%d" % pid,))
+                     ("/parties/coming.asp?p=%d" % pid,), title="Who is coming to %s" % html.unescape(html_encode(name)))
 
     # ----------------------------------------------------------------- piclib
     def render_piclib(self):
@@ -912,7 +948,7 @@ class Site:
         Population: PEOPLE rows created before the cut-off (all of them are in the 2000 nick list).
         Shown (owner decision): nick, groups, real name, e-mail as `local@????`, sex, birth date as
         `dd/mm/????` (the year is never output), country + flag, computer, functions, status, homepage,
-        ICQ number (as text: no request to the ICQ status servers), IRC, scene year, parties,
+        ICQ link (UIN in the pager link, grey-flower badge: no request to the ICQ servers), IRC, scene year, parties,
         preferences, fun answers, interview links, ID photo. Hidden: French department, password,
         logins, cookies, IPs."""
         d = self.data
@@ -921,7 +957,7 @@ class Site:
                              p.irc_chans, p.irc_net, p.parties, p.pref_party, p.pref_demo, p.pref_group, p.pref_coder,
                              p.pref_zik, p.pref_gfx, p.pref_tart, p.pref_movies, p.pref_musics, p.fun1, p.fun2,
                              p.isans, p.isasc, p.iscod, p.isgfx, p.isray, p.isorg, p.isppe, p.isswp, p.issys, p.iszik,
-                             p.firstname, p.lastname, p.email, p.sex, p.birthmd, p.uin, p.pic_ext
+                             p.firstname, p.lastname, p.email, p.isemailhidden, p.sex, p.birthmd, p.uin, p.pic_ext
                       FROM people p LEFT JOIN countries c ON c.id = p.idcountry
                       LEFT JOIN computers k ON k.id = p.idcomputer
                       WHERE p.dt_crea < ? ORDER BY p.id""", (CUTOFF,))
@@ -972,11 +1008,16 @@ class Site:
         photos = {r["id"]: photo(r) for r in rows}
         self.counts["people photos"] = sum(1 for v in photos.values() if v)
 
-        def email(v):
+        def email(v, hidden, last):
+            """local@domain when the local part is a first name or a nick; local@???? when it holds a family
+            name (or the person asked to hide the address)."""
             v = (v or "").strip()
             if "@" not in v:
                 return "..."
-            return html_encode(v.split("@", 1)[0]) + "@" + MASK      # domain never output
+            local, domain = v.split("@", 1)
+            if hidden or not keep_email_whole(local, (last,)):
+                return html_encode(local) + "@" + MASK
+            return html_encode(local) + "@" + html_encode(domain.strip())
 
         def birth(r, fmt):
             md = (r["birthmd"] or "").strip()
@@ -1011,11 +1052,12 @@ class Site:
                 "$$FUN1$$": s2h(r["fun1"]), "$$FUN2$$": s2h(r["fun2"]),
                 "$$HOMEPAGE$$": '<A HREF="%s">%s</A>' % (url, html_encode(url)) if url else "...",
                 "$$NAME$$": (html_encode(first) + " " + html_encode(last)).strip() or "...",
-                "$$EMAIL$$": email(r["email"]),
+                "$$EMAIL$$": email(r["email"], r["isemailhidden"], last),
                 "$$SEX$$": "FEMALE" if r["sex"] else "MALE",
                 "$$BIRTHDATE$$": birth(r, lambda dd, mm: "%02d/%02d/%s" % (dd, mm, MASK)) or "...",
                 "$$INTERVIEW$$": interviews(pid), "$$MSG$$": "",
-                "$$ICQ$$": '<FONT face="Verdana" size=2>ICQ: %d</FONT>' % uin if uin > 0 else "",
+                "$$ICQ$$": ('<FONT face="Verdana" size=2><A href="http://www.icq.com" target="_top">ICQ</A> state :%s</FONT>'
+                            % icq_badge(uin, nick)) if uin > 0 else "",
                 "$$ID_PIC$$": pic,
                 "$$FLAG$$": '<img src="../pictures/flags/%s.gif" align="bottom" width=18 height=12 alt="%s">'
                             % ((r["flag"] or "").lower(), html_encode((r["country"] or "").rstrip())),
@@ -1023,7 +1065,7 @@ class Site:
                 "$$STATUS$$": {0: "ACTIVE", 1: "INACTIVE"}.get(r["status"], "RETIRED")})
             buf = self.cpl(buf, "/handles/")
             self.add("/people/%d.html" % pid, "/handles/handle.asp?id=%d" % pid, buf, "people sheet",
-                     ("/handles/handle.asp?id=%d" % pid,))
+                     ("/handles/handle.asp?id=%d" % pid,), title=nick.strip(), family_name=bool(last))
 
         def link(r):
             return '<A HREF="handle.asp?id=%d">%s</A><font size=+1>&nbsp;<br></font>\r\n' % (r["id"], html_encode(d.author(r["id"])))
@@ -1035,12 +1077,12 @@ class Site:
                         % ((r["flag"] or "").lower(), html_encode(r["country"].rstrip())))
             if photos[r["id"]]:
                 out += '<img src="../pictures/id.gif" align="bottom" width=20 height=14 alt="There is an ID Photo">\r\n'
+            if (r["uin"] or 0) > 0:
+                out += icq_badge(r["uin"], p2000[r["id"]][0].strip()) + "\r\n"
             return out + link(r)
 
-        # ICQ online / offline legend: the status badges came from the ICQ servers and are not shown
-        icq_legend = re.compile(r'(?is)\s*<A href="http://www\.icq\.com"[^>]*>ICQ</A> state :<BR>.*?contact list\)</I></FONT>')
         for i, L in enumerate(letters):
-            buf = icq_legend.sub("", self.eng.open_html("handles/list.html", True))
+            buf = self.eng.open_html("handles/list.html", True)
             buf = rep(buf, {"$$SEARCH$$": "", "$$INDEX$$": "[ " + index_list(L) + " ]",
                             "$$PREVIOUS-NEXT$$": '[ <A href="list.asp?l=%s">&gt;previous</A> / <A href="list.asp?l=%s">'
                                                  '&gt;next</A> ]' % (quote(letters[i - 1]), quote(letters[(i + 1) % len(letters)]))})
@@ -1051,7 +1093,7 @@ class Site:
             self.add("/people/%s.html" % self.letter_slug(L), "/handles/list.asp?l=%s" % quote(L), buf, "people list",
                      ("/handles/list.asp?l=%s" % quote(L.lower()), "/handles/list.asp?l=%s" % quote(L)))
         # interviews.asp: people with an interview page (the interview flag column is empty in the 2006 table)
-        buf = icq_legend.sub("", self.eng.open_html("handles/interview.html", False))
+        buf = self.eng.open_html("handles/interview.html", False)
         lst = sorted((r for r in rows if interviews(r["id"])), key=lambda r: (p2000[r["id"]][0].lower(), r["id"]))
         buf = rep(buf, {"$$SEARCH$$": "", "$$PREVIOUS-NEXT$$": "",
                         "$$LIST$$": "".join(interviews(r["id"]) + " " + link(r) for r in lst)})
@@ -1059,14 +1101,14 @@ class Site:
         self.add("/people/interviews.html", "/handles/interviews.asp", buf, "people list", ("/handles/interviews.asp",))
         # birthdates.asp: "Today" (frozen server date 2000-11-19) and "Next days": the ASP showed the next 20
         # birthdays; the archive lists every birthday of the year from the day after, day and month only.
-        buf = icq_legend.sub("", self.eng.open_html("handles/birthdates.html", False))
+        buf = self.eng.open_html("handles/birthdates.html", False)
         today = "%02d%02d" % (NOW.month, NOW.day)
         born = sorted((r for r in rows if birth(r, lambda dd, mm: True)),
                       key=lambda r: (r["birthmd"], p2000[r["id"]][0].lower(), r["id"]))
 
         def bline(r):
             dd, mm = int(r["birthmd"][2:]), int(r["birthmd"][:2])
-            return lambda t: rep(t, {"$$DATE$$": "%02d %s %s" % (dd, MONTHS[mm - 1], MASK), "$$UIN$$": "",
+            return lambda t: rep(t, {"$$DATE$$": "%02d %s %s" % (dd, MONTHS[mm - 1], MASK), "$$UIN$$": icq_badge(r["uin"], p2000[r["id"]][0].strip()) if (r["uin"] or 0) > 0 else "",
                                      "$$ID$$": r["id"], "$$NICK$$": html_encode(d.author(r["id"]))})
         buf = buf.replace("$$CURRENTDATE$$", news_date(NOW))
         buf = loop(buf, "$$BEGIN1$$", "$$END1$$", [bline(r) for r in born if r["birthmd"] == today])
@@ -1125,6 +1167,9 @@ class Site:
             tr = re.sub(r"\d+\.\d+\.\d+\.\d+\|[\w/]+", lambda _m: name, tr)
             return re.sub(r'(<font class="menutop">)Up(</font>)', r"\1Down\2", tr)
         buf = re.sub(r"(?is)<tr>(?:(?!</tr>).)*</tr>", row, buf)
+        # the public instructions of the dead FTP server carried its login and password: not published
+        buf = re.sub(r'(?is)<a href="ftp://ojradio:ojradio@ftp\.ojuice\.net">ftp\.ojuice\.net</a>\s*\|\s*user : ojradio\s*\|\s*pass : ojradio',
+                     '<a href="ftp://ftp.ojuice.net">ftp.ojuice.net</a>; login and password not published', buf)
         buf = self.cpl(buf, "/nectarine/")
         self.add("/nectarine/index.html", "/nectarine/index.asp", buf, "static page", ("/nectarine/", "/nectarine/index.asp"))
 
@@ -1323,6 +1368,8 @@ class Site:
                     return self.publish_asset("/pictures/piclib/" + (src if not src.startswith("ori/") else src[4:]),
                                               self.media / src)
             return None, "missing"
+        if low in ICQ_ICONS and not self.eng.real(rel) and (REPO / "scripts" / "assets" / Path(rel).name).is_file():
+            return self.publish_asset("/" + rel, REPO / "scripts" / "assets" / Path(rel).name)
         cands = [rel]
         if not low.startswith("skins/"):
             cands += ["skins/%s/%s" % (self.skin, rel), "skins/%s/%s" % (DEFAULT_SKIN, rel)]
@@ -1363,13 +1410,20 @@ class Site:
         u = html.unescape(url.strip())
         if not u or u.startswith(("#", "$$")) or re.match(r"(?i)^(javascript|mailto|news|ftp|telnet|irc|file|about):", u):
             return url, "external"
-        m = re.match(r"(?i)^https?://([^/:?#]+)(?::\d+)?(.*)$", u)
+        m = re.match(r"(?i)^https?://([^/:?#]+)(?::(\d+))?(.*)$", u)
         if m:
             host = m.group(1).lower()
-            rest = m.group(2) or "/"
+            port = m.group(2)
+            rest = m.group(3) or "/"
+            if host in CROSS_HOSTS and rest in ("/", "") and not port:
+                return CROSS_HOSTS[host], "cross"          # another archive of the family
+            if host in OWN_HOSTS and port not in (None, "80"):
+                return url, "external"                       # the radio streams (:8000): dead, kept as written
             if host in OWN_HOSTS:
                 u = rest if rest.startswith("/") else "/" + rest
             elif host.endswith(DEAD_HOSTS):
+                if re.sub(r"^www\.", "", host) + rest.rstrip("/") in KEEP_DEAD_PREFIXES:
+                    return url, "external"
                 return None, "dead third-party service"
             elif host == "nectarine.ojuice.net":       # parameters.inc: the nectarine host showed /nectarine/
                 u = "/nectarine/" + rest.lstrip("/")
@@ -1408,6 +1462,8 @@ class Site:
         text = self.rewrite_links(text, pg)
         text = self.sweep_own_host(text, pg)
         text = mask_ips(text, self.private_ips)
+        # a link to a masked host (private server address) leads nowhere: keep its label only
+        text = re.sub(r"(?is)<a\b[^>]*\bhref\s*=\s*[\"']?(?:https?|ftp)://[^\"'\s>]*\?\?\?\?[^>]*>(.*?)</a\s*>", r"\1", text)
         if "/js/oj.js" not in text:                     # search fields, skin chooser, home redirect to the chosen skin
             tag = '<SCRIPT src="/js/oj.js"></SCRIPT>\r\n'
             i = text.lower().rfind("</body>")
@@ -1417,6 +1473,75 @@ class Site:
         if not re.search(r"(?i)charset\s*=", text):
             m = re.search(r"(?i)<head[^>]*>", text) or re.search(r"(?i)<html[^>]*>", text)
             text = text[:m.end()] + "\n" + META_CHARSET + text[m.end():] if m else META_CHARSET + "\n" + text
+        return self.set_title(self.tidy(text, pg), pg)
+
+    GENERIC_TITLES = ("orange juice - the demoscene information center", "untitled document", "")
+    HEADING_RE = re.compile(r'(?is)<(?:font|td|span|div|p|h\d)[^>]*class="?(?:title[0-9])"?[^>]*>(.*?)</(?:font|td|span|div|p|h\d)>')
+
+    def derive_title(self, text, pg):
+        """A title per page ("<what> - Orange Juice"): the original had the same one everywhere."""
+        path = pg.path
+        if pg.title:
+            return html_encode(pg.title)
+        m = re.match(r"/news/page-(\d+)\.html$", path)
+        if m:
+            return "News, page " + m.group(1)
+        m = re.match(r"/people/([0-9a-z]|0-9)\.html$", path)
+        if m:
+            return "People, " + m.group(1).upper()
+        m = re.match(r"/groups/([0-9a-z]|0-9)\.html$", path)
+        if m:
+            return "Groups, " + m.group(1).upper()
+        m = re.match(r"/interviews/(\d+)_[ef]\.htm$", path)
+        if m:
+            p = self.data.people2000().get(int(m.group(1)))
+            return "Interview, " + html_encode(p[0].strip()) if p else "Interview"
+        m = re.match(r"/nectarine/(\w+?)playlist\.htm$", path)
+        if m:
+            return "Nectarine playlist, " + m.group(1).replace("_", "-").upper()
+        if path.startswith("/oneliner/"):
+            return "Oneliner"
+        if path == "/charts/voters.html":
+            return "Charts, voters"
+        h = self.HEADING_RE.search(text)
+        head = re.sub(r"\s+", " ", re.sub(r"(?s)<[^>]+>", "", h.group(1))).strip() if h else ""
+        if head and head.lower() not in ("archived / archiv&eacute;",):
+            return head
+        stem = re.sub(r"\.html?$", "", path.rsplit("/", 1)[-1])
+        return html_encode((path.strip("/").split("/")[0] + ", " + stem) if "/" in path.strip("/") else stem)
+
+    def set_title(self, text, pg):
+        if pg.path == "/index.html":
+            return text
+        m = re.search(r"(?is)<title[^>]*>(.*?)</title\s*>", text)
+        cur = re.sub(r"\s+", " ", m.group(1)).strip() if m else ""
+        if cur.lower() not in self.GENERIC_TITLES:
+            return text
+        new = "<TITLE>%s - Orange Juice</TITLE>" % self.derive_title(text, pg)
+        if m:
+            return text[:m.start()] + new + text[m.end():]
+        h = re.search(r"(?i)<head[^>]*>", text)
+        return text[:h.end()] + "\n" + new + text[h.end():] if h else text
+
+    def tidy(self, text, pg):
+        """Small fixes of dead behaviour that the archive would otherwise keep."""
+        if pg.path.startswith("/nectarine/"):
+            # the "now playing" pages reloaded themselves every 90 s: frozen, they would reload forever
+            text = re.sub(r'(?is)<meta\s+http-equiv="?refresh"?\s+content="?\d+"?\s*/?>\s*', "", text)
+            # menu of the radio pages: "#what" is the "what is Nectarine" block (a name="how" anchor of index.html)
+            index = pg.path == "/nectarine/index.html"
+            if 'name="what"' not in text:
+                text = text.replace('href="#what"', 'href="%s#how"' % ("" if index else "index.html"))
+            if not index:     # the other radio pages share the menu, whose targets are all on index.html
+                text = re.sub(r'href="#(\w+)"', lambda m: m.group(0) if 'name="%s"' % m.group(1) in text
+                              else 'href="index.html#%s"' % m.group(1), text)
+        if pg.path == "/index.html":      # fav(): "add to favorites" of IE channels, no longer called
+            text = re.sub(r"(?s)function fav\(\)\s*\{.*?\n\}\s*\n", "", text, count=1)
+        if pg.path == "/banners.html":
+            text = text.replace("<FONT class=title5>Banners exchange system</FONT>",
+                                "<FONT class=title5>Banners exchange system</FONT><BR>"
+                                "<FONT class=discreet>[ archived: the banner scripts of ojuice.net below no longer exist / "
+                                "les scripts de banni&egrave;res d'ojuice.net ci-dessous n'existent plus ]</FONT>", 1)
         return text
 
     FORM_RE = re.compile(r"(?is)<form\b([^>]*)>(.*?)</form\s*>")
@@ -1489,6 +1614,8 @@ class Site:
                 kind = am.group(1).lower()
                 val = attr_val(am)
                 new, why = self.resolve(val, base, pg)
+                if why == "cross":
+                    return '%s="%s"' % (am.group(1), new)
                 if why == "external":
                     if kind in ("src", "background", "lowsrc") and re.match(r"(?i)^\s*(https?:)?//", val):
                         drop.append(val)       # third-party image/script: never requested from the archive
@@ -1561,7 +1688,7 @@ class Site:
         for path in sorted(self.pages):
             pg = self.pages[path]
             write_text(self.out / (self.prefix + path).lstrip("/"),
-                       add_removal_note(pg.text) if is_people_page(pg) else pg.text)
+                       add_removal_note(pg.text) if needs_removal_note(pg) else pg.text)
         self.pages_written = len(self.pages)
         self.pages = {p: None for p in self.pages}      # free the text, keep the set
 
@@ -1664,11 +1791,37 @@ EMAIL_RE = re.compile(r"([A-Za-z0-9._+-]+)@([A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+)")
 IPV4 = re.compile(r"(?<![\d.])(?:(?:25[0-5]|2[0-4]\d|1?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|1?\d?\d)(?![\d.])")
 
 
+FAMILY_LOCALS = set()      # lower-case local parts that hold a family name (private/email-family.txt + the people table)
+
+
+def norm_name(v):
+    return re.sub(r"[^a-z]", "", (v or "").lower())
+
+
+def keep_email_whole(local, family_names=()):
+    """Owner rule: the domain is truncated (`local@????`) only when the local part holds a family name;
+    a first name or a nick alone keeps the full address."""
+    low = local.lower()
+    if low in FAMILY_LOCALS:
+        return False
+    n = norm_name(low)
+    return not any(len(f) >= 3 and f in n for f in map(norm_name, family_names))
+
+
 def redact_emails(text):
-    """As OrangeJuice98: mailto: links become their label; local@domain becomes local@????."""
-    text = MAILTO_A_RE.sub(lambda m: m.group(1), text)
+    """mailto: links of truncated addresses become their label; every local@domain whose local part
+    holds a family name becomes local@????, the others stay complete (links included)."""
+    def anchor(m):
+        a = re.search(r"(?i)mailto:\s*([^\"'>\s?]+)", m.group(0))
+        e = EMAIL_RE.fullmatch(html.unescape(a.group(1))) if a else None
+        if e and keep_email_whole(e.group(1)):
+            kept = re.sub(r"(?i)(mailto:\s*[^\"'?>\s]+)\?[^\"'>]*", r"\1", m.group(0))   # no pre-filled subject
+            return re.sub(r"(?i)mailto:", "\x00MT\x00", kept)
+        return m.group(1)
+    text = MAILTO_A_RE.sub(anchor, text)
     text = re.sub(r"(?i)mailto:", "", text)
-    return EMAIL_RE.sub(lambda m: m.group(1) + "@" + MASK, text)
+    text = text.replace("\x00MT\x00", "mailto:")
+    return EMAIL_RE.sub(lambda m: m.group(0) if keep_email_whole(m.group(1)) else m.group(1) + "@" + MASK, text)
 
 
 def mask_ips(text, private):
@@ -1691,7 +1844,12 @@ def clean_text(s, private, limit=0):
     """Plain text for the search indexes: tags removed, entities decoded, e-mails and IPs redacted."""
     t = html.unescape(re.sub(r"(?s)<[^>]*>", " ", s or ""))
     t = mask_ips(redact_emails(re.sub(r"\s+", " ", t).strip()), private)
-    return t[:limit].rstrip() + "..." if limit and len(t) > limit else t
+    if limit and len(t) > limit:
+        cut = t[:limit]
+        if t[limit] != " " and "@" in cut.rsplit(" ", 1)[-1]:     # never cut an e-mail address in the middle
+            cut = cut.rsplit(" ", 1)[0] if " " in cut else ""
+        return cut.rstrip() + "..."
+    return t
 
 
 def write_indexes(site, out):
@@ -1767,6 +1925,12 @@ def main(argv=None):
             ap.error("unknown skin(s): %s (known: %s)" % (", ".join(unknown), ", ".join(skins)))
         skins = [DEFAULT_SKIN] + [x for x in skins[1:] if x in want]
     data = Data(a.db, raw)
+    # local parts that hold a family name: the people table + the reviewed list private/email-family.txt
+    FAMILY_LOCALS.update(data.family_locals())
+    fam_file = PRIVATE / "email-family.txt"
+    if fam_file.exists():
+        FAMILY_LOCALS.update(l.strip().lower() for l in read_text(fam_file).splitlines()
+                             if l.strip() and not l.startswith("#"))
     assets, tonic = {}, None
     for skin in skins:
         site = Site(a, skin, "" if skin == DEFAULT_SKIN else "/skin/" + skin, data, skins)
