@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://orangejuice99.sauthier.family/sitemap.xml

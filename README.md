@@ -13,13 +13,13 @@ and a small Edge Script redirects the old `*.asp?id=` URLs to the static pages.
 
 ## Search engines
 
-`scripts/seo.py` writes `robots.txt` (allow everything, with the `Sitemap:` line) and `sitemap.xml` (indexable pages only and the alternative skins) into `site/`; `scripts/publish.sh` runs it before the deploy (alone: `python3 -I scripts/seo.py`; the files land in the git-ignored `site/`).
+`scripts/seo.py` writes `robots.txt` (allow everything, with the `Sitemap:` line) and `sitemap.xml` (indexable pages only and the alternative skins) into `site/`; `scripts/publish.sh` runs it after the build (alone: `python3 -I scripts/seo.py`; the files land in `site/`).
 
 ## Layout
 
 | Path | Content |
 | --- | --- |
-| `site/` | The generated static site, exactly as served (never edit by hand; **git-ignored**, about 530 MB): skin `tonic` at the root, the 12 other skins under `/skin/<name>/`, `/js/oj.js`, search indexes in `/idx/` |
+| `site/` | The generated static site, exactly as served (never edit by hand; committed, deployed by CI on merge, about 300 MB): skin `tonic` at the root, the 12 other skins under `/skin/<name>/`, `/js/oj.js`, search indexes in `/idx/` |
 | `hosting/404.html` | Custom 404 page (generated with `site/`), deployed next to it |
 | `build-meta/` | Paths only: `url-map.json` (old URL -> new path, source of the Edge Script), `unlinked.tsv`, `dropped.tsv` |
 | `site.json` | The only site-specific hosting settings: owner, repository, storage zone, pull zone, hostname, 404 page |
@@ -34,7 +34,7 @@ and a small Edge Script redirects the old `*.asp?id=` URLs to the static pages.
 | `scripts/exclude-globs.txt` | What must never be published |
 | `scripts/gen_edge_script.py` | `build-meta/url-map.json` -> `infra/edge/redirects.js` (`--check`: fails if stale) |
 | `scripts/test_edge_script.mjs` | Node test of the redirects: every `url-map.json` entry, edge cases, targets present in `site/` |
-| `scripts/publish.sh` | The one local entry point: statify, edge script check, deploy (with the checks), smoke test |
+| `scripts/publish.sh` | The local entry point: statify, edge script check, checks (`--deploy`: emergency deploy from the Mac) |
 | `scripts/deploy.py` | Sync `site/` + `hosting/404.html` to the storage zone (changed files only, parallel), purge the CDN |
 | `scripts/smoke_test.py` | Check the public site: pages of each kind and skin, legacy redirects, POST refused, headers, charset, 404 |
 | `scripts/bunny.py` | bunny.net API helpers shared by the scripts |
@@ -182,31 +182,35 @@ Pages that list or describe people end with a small footer, "To be removed from 
 
 ## Deploying
 
-`site/` is generated on the Mac (it needs `private/`) and is not in the repository, so the
-**website is deployed from the Mac**, never by GitHub Actions. One command builds, checks,
-deploys and tests (Proton Pass CLI logged in):
+`site/` is generated on the Mac (it needs `private/`) but **committed**, like in
+the other old-site repositories. **Merging a pull request to `main` deploys it**: the GitHub Actions
+workflow *Website: deploy* (`.github/workflows/deploy.yml`, when `site/**` or `hosting/**` changed)
+runs the checks and a ClamAV scan, uploads only new or changed files (SHA-256 against the remote
+listing), deletes removed ones (guarded against mass deletion), purges the CDN, then runs
+`smoke_test.py --sample 300`. The run takes a while (about 300 MB checkout and scan): check it is green
+after the merge. Secret `BUNNY_API_KEY`.
+
+Workflow of a change (script, text, data):
+
+1. Branch from an up-to-date `main`, change the scripts.
+2. Rebuild and check locally, then commit `site/` **in the same pull request**:
 
 ```bash
 scripts/publish.sh
 ```
 
-It runs `statify.py`, checks that the Edge Script matches `url-map.json`, then
-`scripts/deploy.py`, which **refuses to deploy unless `verify_build.py` and `check_excludes.py`
-pass** on this exact build (it runs them, about 90 s, and keeps a stamp in `tmp/` so a re-run of
-the same build skips them), uploads only new or changed files (SHA-256 against the remote
-listing, 24 in parallel), deletes removed ones (guarded against mass deletion), purges the CDN;
-then `smoke_test.py --sample 300`. Interrupted or failed uploads: run it again, only what is
-missing is sent. Dry run, or deploy the existing `site/` without rebuilding:
+It runs `statify.py`, `seo.py`, checks that the Edge Script is up to date and passes its test, then
+`verify_build.py` and `check_excludes.py` (a leak committed to git history is permanent: never commit
+`site/` without these two passing). `--no-build` skips `statify.py`.
 
-```bash
-scripts/publish.sh --dry-run
-```
+3. `git add site hosting build-meta` (never `git add -A`: check `git status`), commit, push, open the
+   pull request, merge: CI deploys.
 
-```bash
-scripts/publish.sh --no-build
-```
+Never deploy by hand (a merge that does not match the live site is how changes got lost). Emergency
+only: `scripts/publish.sh --deploy` (needs Proton Pass CLI) runs `deploy.py` and the smoke test from
+the Mac. Files must stay under 100 MB (GitHub limit).
 
-The steps one by one:
+The deploy steps by hand (same as CI):
 
 ```bash
 pass-cli run --env-file infra/secrets.env -- python3 -I scripts/deploy.py --dry-run
@@ -275,7 +279,7 @@ cd infra && pass-cli run --env-file secrets.env -- tofu plan
    ```
 
    ```bash
-   scripts/publish.sh --no-build
+   scripts/publish.sh --no-build --deploy
    ```
 
 ## Manual steps in the bunny.net dashboard (only if the apply cannot do it)

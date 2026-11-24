@@ -1,0 +1,744 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META name="DESCRIPTION" content="Orange Juice - The demoscene information center">
+<META name="KEYWORDS" content="4k, 64k, amiga, ansi, arm, ascii, assembler, assembleur, assembly, atari, bbs, bulletin board system, c64, chip, chiptune, coder, commodore 64, competition, compo, computer art, conference, convention, demo-maker, demo-scene, demomaker, demoscene, demoparty, demoparties, demo-party, demo-parties, dos extender, extended module, falcon, fast tracker, gfx, graphician, impulse tracker, interview, intro, ltp, lucky and tigrou party, meeting, mod, mod plug, mod plug player, mod plug plugin, mod plug tracker, module, music, musician, orange juice, oric, party, parties, pc, programmer, programmeur, risc pc, s3m, scene link, sid, the gathering, the party, tracker, xm">
+<META name="revisit-after" content="15 days">
+<META name="ROBOTS" content="ALL">
+<TITLE>Orange Juice - The demoscene information center</TITLE>
+<STYLE type="text/css">
+A:link {color:#FF8040}
+A:visited {color:#FF8040}
+A:active {color:#FF8040}
+A:hover {color:#FF8040}
+A.txt:link {color:#FFFFFF}
+A.txt:visited {color:#FFFFFF}
+A.txt:active {color:#FFFFFF}
+A.txt:hover {color:#AAAAAA}
+A.txtg:link {color:#AAAAAA}
+A.txtg:visited {color:#AAAAAA}
+A.txtg:active {color:#AAAAAA}
+A.txtg:hover {color:#FFFFFF}
+INPUT.s180 {width: 180px}
+INPUT.s200 {width: 200px}
+TD {font-family:Verdana,Arial;font-size:10pt}
+TD.margetop {height:16px}
+TABLE.specialtable {background-color:#252525}
+.normal {font-family:Verdana,Arial;font-size:10pt}
+.aslink {color:#FF8040}
+.discreet {color:#808080}
+.errmsg {font-weight:bold;color:#4080FF;font-size:10pt}
+.title2 {font-size:12pt;font-weight:bold;color:#FF8040}
+.title4 {font-size:14.5pt;font-weight:bold;color:#FF8040}
+.title5 {font-size:18pt;font-weight:bold;color:#FF8040}
+.title6 {font-size:24pt;font-weight:bold;color:#FF8040}
+.alttitle5 {font-size:18pt;font-weight:bold;font-style:italic;color:#4080FF}
+.quote4 {font-size:14.5pt;font-weight:bold;font-style:italic;color:#FF8040}
+.quote5 {font-size:18pt;font-weight:bold;font-style:italic;color:#FF8040}
+.date {font-size:7.5pt;color:#FF8040}
+.smtxt {font-size:7.5pt}
+.mdtxt {font-size:12pt}
+.list {font-size:12pt;font-weight:bold}
+.menutop {font-size:7.5pt}
+.menubottom {font-size:7.5pt}
+.smerr {font-size:7.5pt;font-weight:bold;color:#0080FF}
+</STYLE>
+</HEAD>
+
+<BODY bgcolor="#000000" text="#FFFFFF" link="#FF8040" vlink="#FF8040" alink="#FF8040" topmargin=0 leftmargin=0 marginwidth=0 marginheight=0>
+
+<TABLE border="0" cellpadding="0" cellspacing="0" width="780">
+	<TR> 
+		<TD width="130" rowspan="3" valign="top" background="/skins/tonic_snow/pictures/bar.gif">
+			<IMG src="/skins/tonic_snow/pictures/bar_title.gif" width="130" height="85" alt="non clickable zone ! =)"><BR>
+			<A href="/skin/tonic_snow/index.html"><IMG src="/skins/tonic_snow/pictures/bar_news.gif" BORDER="0" width="130" height="24" alt="NEWS - all the news"></A><BR><A
+			href="/skin/tonic_snow/people/birthdays.html"><IMG SRC="/skins/tonic_snow/pictures/bar_people.gif" border="0" width="130" HEIGHT="24" alt="PEOPLE - chip-endales (and some sparc-girls)"></A><BR><A
+			href="/skin/tonic_snow/parties/index.html"><IMG src="/skins/tonic_snow/pictures/bar_parties.gif" BORDER="0" width="130" height="24" alt="PARTIES - here are incoming parties and parties reviews"></A><BR><A
+			href="/skin/tonic_snow/piclib/index.html"><IMG src="/skins/tonic/pictures/bar_download.gif" BORDER="0" width="130" height="24" alt="DOWNLOAD - you'll see"></A><BR>
+			<BR>
+			<A href="/skin/tonic_snow/charts/index.html"><IMG src="/skins/tonic/pictures/bar_charts.gif" border="0" width="130" height="24" alt="CHARTS - real time charts !"></A><BR>
+			<A href="/skin/tonic_snow/misc.html"><IMG src="/skins/tonic_snow/pictures/bar_misc.gif" border="0" width="130" height="24" alt="MISC - hard to explain"></A><BR>
+			<A href="/skin/tonic_snow/soon.html"><IMG src="/skins/tonic_snow/pictures/bar_forums.gif" border="0" width="130" height="24" alt="FORUM - chat !"></A><BR>
+			<BR>
+			<A href="/skin/tonic_snow/links/links.html"><IMG src="/skins/tonic_snow/pictures/bar_links.gif" BORDER="0" width="130" height="24" alt="LINKS - really need an explanation ?"></A><BR><A
+			href="/skin/tonic_snow/faq.html"><IMG src="/skins/tonic_snow/pictures/bar_faq.gif" border="0" WIDTH="130" height="24" alt="FAQ - STOP asking us questions ! read this rubric instead..."></A><BR><A
+			HREF="/skin/tonic_snow/credits.html"><IMG src="/skins/tonic_snow/pictures/bar_credits.gif" BORDER="0" width="130" height="24" alt="CREDITS - go ! go ! go !"></A><BR>
+			<BR><BR><BR><BR>
+		</TD>
+		<TD width="640" colspan=2></TD>
+	</TR> 
+	<TR> 
+		<TD width="10">&nbsp;</TD>
+		<TD valign="top" width="640">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+
+preloadImages();
+
+function newImage(arg) {
+	if (document.images) {
+		rslt = new Image();
+		rslt.src = arg;
+		return rslt;
+	}
+}
+
+function changeImages() {
+	if (document.images && (preloadFlag == true)) {
+		for (var i=0; i<changeImages.arguments.length; i+=2) {
+			document[changeImages.arguments[i]].src = changeImages.arguments[i+1];
+		}
+	}
+}
+
+var preloadFlag = false;
+function preloadImages() {
+	if (document.images) {
+		nectarine_02_over = newImage("/skins/tonic/nectarine/images/nectarine_02-over.gif");
+		nectarine_02_down = newImage("/skins/tonic/nectarine/images/nectarine_02-down.gif");
+		nectarine_03_over = newImage("/skins/tonic/nectarine/images/nectarine_03-over.gif");
+		nectarine_03_down = newImage("/skins/tonic/nectarine/images/nectarine_03-down.gif");
+		nectarine_04_nectarine_03_down = newImage("/skins/tonic/nectarine/images/nectarine_04-nectarine_03_d.gif");
+		nectarine_04_over = newImage("/skins/tonic/nectarine/images/nectarine_04-over.gif");
+		nectarine_04_down = newImage("/skins/tonic/nectarine/images/nectarine_04-down.gif");
+		nectarine_08_nectarine_02_over = newImage("/skins/tonic/nectarine/images/nectarine_08-nectarine_02_o.gif");
+		nectarine_11_nectarine_02_over = newImage("/skins/tonic/nectarine/images/nectarine_11-nectarine_02_o.gif");
+		nectarine_12_nectarine_02_over = newImage("/skins/tonic/nectarine/images/nectarine_12-nectarine_02_o.gif");
+		preloadFlag = true;
+	}
+}
+
+// -->
+</SCRIPT>
+<br>
+<br>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 width="576">
+	<TR> 
+		<TD> <IMG SRC="/skins/tonic/nectarine/images/spacer.gif" WIDTH=22 HEIGHT=1></TD>
+		<TD> <IMG SRC="/skins/tonic/nectarine/images/spacer.gif" WIDTH=193 HEIGHT=1></TD>
+		<TD> <IMG SRC="/skins/tonic/nectarine/images/spacer.gif" WIDTH=109 HEIGHT=1></TD>
+		<TD> <IMG SRC="/skins/tonic/nectarine/images/spacer.gif" WIDTH=123 HEIGHT=1></TD>
+		<TD> <IMG SRC="/skins/tonic/nectarine/images/spacer.gif" WIDTH=34 HEIGHT=1></TD>
+		<TD> <IMG SRC="/skins/tonic/nectarine/images/spacer.gif" WIDTH=81 HEIGHT=1></TD>
+		<TD> <IMG SRC="/skins/tonic/nectarine/images/spacer.gif" WIDTH=7 HEIGHT=1></TD>
+		<TD> <IMG SRC="/skins/tonic/nectarine/images/spacer.gif" WIDTH=14 HEIGHT=1></TD>
+	</TR>
+	<TR> 
+		<TD COLSPAN=2> <IMG SRC="/skins/tonic/nectarine/images/nectarine_01.gif" WIDTH=215 HEIGHT=22></TD>
+		<TD> <A HREF="/skin/tonic_snow/nectarine/how.htm"
+			   ONMOUSEOVER="changeImages('nectarine_02', '/skins/tonic/nectarine/images/nectarine_02-over.gif', 'nectarine_08', '/skins/tonic/nectarine/images/nectarine_08-nectarine_02_o.gif', 'nectarine_11', '/skins/tonic/nectarine/images/nectarine_11-nectarine_02_o.gif', 'nectarine_12', '/skins/tonic/nectarine/images/nectarine_12-nectarine_02_o.gif'); return true;"
+			   ONMOUSEOUT="changeImages('nectarine_02', '/skins/tonic/nectarine/images/nectarine_02.gif', 'nectarine_08', '/skins/tonic/nectarine/images/nectarine_08.gif', 'nectarine_11', '/skins/tonic/nectarine/images/nectarine_11.gif', 'nectarine_12', '/skins/tonic/nectarine/images/nectarine_12.gif'); return true;"
+			   ONMOUSEDOWN="changeImages('nectarine_02', '/skins/tonic/nectarine/images/nectarine_02-down.gif'); return true;"
+			   ONMOUSEUP="changeImages('nectarine_02', '/skins/tonic/nectarine/images/nectarine_02-over.gif'); return true;" target="_self"> 
+			<IMG NAME="nectarine_02" SRC="/skins/tonic/nectarine/images/nectarine_02.gif" WIDTH=109 HEIGHT=22 BORDER=0 alt="How to listen Nectarine Radio ?"></A></TD>
+		<TD> <A HREF="/skin/tonic_snow/nectarine/playing.htm"
+			   ONMOUSEOVER="changeImages('nectarine_03', '/skins/tonic/nectarine/images/nectarine_03-over.gif', 'nectarine_08', '/skins/tonic/nectarine/images/nectarine_08-nectarine_02_o.gif', 'nectarine_11', '/skins/tonic/nectarine/images/nectarine_11-nectarine_02_o.gif', 'nectarine_12', '/skins/tonic/nectarine/images/nectarine_12-nectarine_02_o.gif'); return true;"
+			   ONMOUSEOUT="changeImages('nectarine_03', '/skins/tonic/nectarine/images/nectarine_03.gif', 'nectarine_04', '/skins/tonic/nectarine/images/nectarine_04.gif', 'nectarine_08', '/skins/tonic/nectarine/images/nectarine_08.gif', 'nectarine_11', '/skins/tonic/nectarine/images/nectarine_11.gif', 'nectarine_12', '/skins/tonic/nectarine/images/nectarine_12.gif'); return true;"
+			   ONMOUSEDOWN="changeImages('nectarine_03', '/skins/tonic/nectarine/images/nectarine_03-down.gif', 'nectarine_04', '/skins/tonic/nectarine/images/nectarine_04-nectarine_03_d.gif'); return true;"
+			   ONMOUSEUP="changeImages('nectarine_03', '/skins/tonic/nectarine/images/nectarine_03-over.gif', 'nectarine_04', '/skins/tonic/nectarine/images/nectarine_04.gif'); return true;" target="_self"> 
+			<IMG NAME="nectarine_03" SRC="/skins/tonic/nectarine/images/nectarine_03.gif" WIDTH=123 HEIGHT=22 BORDER=0 alt="what is playing now ?"></A></TD>
+		<TD COLSPAN=4> <A HREF="/skin/tonic_snow/nectarine/playlist0.htm"
+			   ONMOUSEOVER="changeImages('nectarine_04', '/skins/tonic/nectarine/images/nectarine_04-over.gif', 'nectarine_08', '/skins/tonic/nectarine/images/nectarine_08-nectarine_02_o.gif', 'nectarine_11', '/skins/tonic/nectarine/images/nectarine_11-nectarine_02_o.gif', 'nectarine_12', '/skins/tonic/nectarine/images/nectarine_12-nectarine_02_o.gif'); return true;"
+			   ONMOUSEOUT="changeImages('nectarine_04', '/skins/tonic/nectarine/images/nectarine_04.gif', 'nectarine_08', '/skins/tonic/nectarine/images/nectarine_08.gif', 'nectarine_11', '/skins/tonic/nectarine/images/nectarine_11.gif', 'nectarine_12', '/skins/tonic/nectarine/images/nectarine_12.gif'); return true;"
+			   ONMOUSEDOWN="changeImages('nectarine_04', '/skins/tonic/nectarine/images/nectarine_04-down.gif'); return true;"
+			   ONMOUSEUP="changeImages('nectarine_04', '/skins/tonic/nectarine/images/nectarine_04-over.gif'); return true;" target="_self"> 
+			<IMG NAME="nectarine_04" SRC="/skins/tonic/nectarine/images/nectarine_04.gif" WIDTH=136 HEIGHT=22 BORDER=0 alt="Want to request a song ?"></A></TD>
+	</TR>
+	<TR> 
+		<TD COLSPAN=8> <IMG SRC="/skins/tonic/nectarine/images/nectarine_05.gif" WIDTH=583 HEIGHT=19></TD>
+	</TR>
+	<TR> 
+		<TD COLSPAN=2> <IMG SRC="/skins/tonic/nectarine/images/nectarine_06.gif" WIDTH=215 HEIGHT=60 alt="Nectarine is an Orange Juice production"></TD>
+		<TD COLSPAN=6 bgcolor="#000000"> 
+			<center>
+				<font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FF9900"><strong>Playlist 
+				&amp; Requests<br>
+				</strong>[Last updated on 29/09/2000]</font>
+</center>
+		</TD>
+	</TR>
+	<TR> 
+		<TD COLSPAN=8> <IMG NAME="nectarine_08" SRC="/skins/tonic/nectarine/images/nectarine_08.gif" WIDTH=583 HEIGHT=61></TD>
+	</TR>
+	<TR bgcolor="#000000"> 
+		<TD COLSPAN=8> 
+			<center>
+				<font color="#FFFFFF"> </font> 
+				<div align="center"> 
+					<center>
+						<div align="center">
+							<center>
+								<br>
+							</center>
+						</div>
+						<p align="center"><font color="#FFFF00"><a href="/skin/tonic_snow/nectarine/0_9playlist.htm"><font size="2">0..9 
+							</font></a><font size="2">,<a
+href="/skin/tonic_snow/nectarine/Aplaylist.htm"> A </a>, <a href="/skin/tonic_snow/nectarine/Bplaylist.htm">B </a>, <a href="/skin/tonic_snow/nectarine/Cplaylist.htm">C 
+							</a>, <a
+href="/skin/tonic_snow/nectarine/Dplaylist.htm">D </a>, <a href="/skin/tonic_snow/nectarine/Eplaylist.htm">E </a>, <a href="/skin/tonic_snow/nectarine/Fplaylist.htm">F 
+							</a>, <a
+href="/skin/tonic_snow/nectarine/Gplaylist.htm">G </a>, <a href="/skin/tonic_snow/nectarine/Hplaylist.htm">H </a>, <a href="/skin/tonic_snow/nectarine/Iplaylist.htm">I 
+							</a>, <a
+href="/skin/tonic_snow/nectarine/Jplaylist.htm">J </a>, <a href="/skin/tonic_snow/nectarine/Kplaylist.htm">K </a>, <a href="/skin/tonic_snow/nectarine/Lplaylist.htm">L 
+							</a>, <a
+href="/skin/tonic_snow/nectarine/Mplaylist.htm">M </a>, <a href="/skin/tonic_snow/nectarine/Nplaylist.htm">N </a>, <a href="/skin/tonic_snow/nectarine/Oplaylist.htm">O 
+							</a>, <a
+href="/skin/tonic_snow/nectarine/Pplaylist.htm">P </a>, <a href="/skin/tonic_snow/nectarine/Qplaylist.htm">Q </a>, <a href="/skin/tonic_snow/nectarine/Rplaylist.htm">R 
+							</a>, <a
+href="/skin/tonic_snow/nectarine/Splaylist.htm">S </a>, <a href="/skin/tonic_snow/nectarine/Tplaylist.htm">T </a>, <a href="/skin/tonic_snow/nectarine/Uplaylist.htm">U 
+							</a>,<a
+href="/skin/tonic_snow/nectarine/Vplaylist.htm">V </a>, <a href="/skin/tonic_snow/nectarine/Wplaylist.htm">W </a>, <a href="/skin/tonic_snow/nectarine/Xplaylist.htm">X</a>, 
+							<a
+href="/skin/tonic_snow/nectarine/Yplaylist.htm">Y </a>, <a href="/skin/tonic_snow/nectarine/Zplaylist.htm">Z</a></font></font></p>
+						<div align="center">
+							<center>
+								<table border="0" width="98%" cellspacing="1">
+									<tr> 
+										<td align="center" bgcolor="#FF9933" width="16%"><font color="#FFFF00">No</font></td>
+										<td align="center" bgcolor="#FF9933" width="44%"><font color="#FFFF00">Artist 
+											- Title</font></td>
+										<td align="center" bgcolor="#FF9933" width="17%"><font color="#FFFF00">Request</font></td>
+										<td align="center" bgcolor="#FF9933" width="23%"><font color="#FFFF00">Time</font></td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>1</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>- - Dream The Dreamer</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:09</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>2</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>(Alkama & OlivierM) /Far&High - 2L.mp3</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:00</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>3</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>(C) 1998 Jogeir Liljedahl - The Magic Spell</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:23</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>4</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>(C) 95/98 by Jogeir Liljedahl - One 4 me.mp3</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:37</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>5</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>(Mo & Alkama) / TPOLM,Far&High - Digital</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:46</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>6</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>(Super Mario Bros)-Theme</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:54</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>7</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>..and the secret formula - the amazing power of the..</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:40</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>8</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>..oO hOlo Oo.. [ROTA] - Point Zero</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:29</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>9</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>..oO pRAYEr Oo..[ROTA] - Hypnotic.mp3</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">5:18</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>10</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>.: Dj.strasH - .: smAck mY biTch uP 2k</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:08</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>11</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>[ Juzdie / Coil ] - [ Maximum Power ]</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:39</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>12</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>[Moby] Mobyle</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:35</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>13</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>[Traven ^ Syndrome] Ayuba Aye</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:14</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>14</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>[Traven ^ Syndrome] Escape From Atlantis</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:44</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>15</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>[Traven ^ Syndrome] Pang In Game</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:19</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>16</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>[Traven ^ Syndrome] Plutonian Funk</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:46</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>17</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>[Traven ^ Syndrome] She Doesn't Know...FINAL</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:01</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>18</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>[Traven ^ Syndrome] Stop!</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:01</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>19</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>1001ride</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">1:32</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>20</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>1989_A_NUMBER!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:13</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>21</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>1-DER_SYNDICATE!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:16</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>22</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>1-FADE!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">5:45</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>23</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>1MANDOG!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:13</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>24</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>2_YEARS_CREST!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">2:41</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>25</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>2-HIGROU!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:20</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>26</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>2ndreal2!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">6:44</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>27</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>3818919/W - 702</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:30</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>28</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>3818919/w - ages</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:56</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>29</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>3818919/w - cheshire</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:35</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>30</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>3818919/w - nachos supreme</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:46</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>31</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>3818919/w - shift-break</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:25</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>32</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>4MAT_X!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">4:56</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>33</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>4Mat-Anarchy_ANARCHYMENU10!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">0:46</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>34</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>6BEAT!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:12</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>35</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>76_4_AN_EXPLAIN_V2!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">9:47</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>36</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>7K-MEDLE</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">6:16</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+									<tr bgcolor="#FFCC99"> 
+										<td width="16%"> 
+											<p align="center"><font color="#000000"><small>37</small></font> 
+										</td>
+										<td width="44%"><font color="#000000"><small>88_FUNKY_AVENUE!!s</small></font></td>
+										<td bgcolor="#000000" width="17%"> 
+											<p align="center"><font color="#000000">vote!</font> 
+										</td>
+										<td bgcolor="#000000" width="23%"> 
+											<p align="center"><font color="#000000"><small><strong><font color="#FFFFFF">3:09</font></strong></small></font> 
+										</td>
+									</tr>
+									 
+								</table>
+								<br>
+							</center>
+						</div>
+						<p align="center"><font color="#FFFF00"><a href="/skin/tonic_snow/nectarine/0_9playlist.htm"><font size="2">0..9 
+							</font></a><font size="2">,<a
+href="/skin/tonic_snow/nectarine/Aplaylist.htm"> A </a>, <a href="/skin/tonic_snow/nectarine/Bplaylist.htm">B </a>, <a href="/skin/tonic_snow/nectarine/Cplaylist.htm">C 
+							</a>, <a
+href="/skin/tonic_snow/nectarine/Dplaylist.htm">D </a>, <a href="/skin/tonic_snow/nectarine/Eplaylist.htm">E </a>, <a href="/skin/tonic_snow/nectarine/Fplaylist.htm">F 
+							</a>, <a
+href="/skin/tonic_snow/nectarine/Gplaylist.htm">G </a>, <a href="/skin/tonic_snow/nectarine/Hplaylist.htm">H </a>, <a href="/skin/tonic_snow/nectarine/Iplaylist.htm">I 
+							</a>, <a
+href="/skin/tonic_snow/nectarine/Jplaylist.htm">J </a>, <a href="/skin/tonic_snow/nectarine/Kplaylist.htm">K </a>, <a href="/skin/tonic_snow/nectarine/Lplaylist.htm">L 
+							</a>, <a
+href="/skin/tonic_snow/nectarine/Mplaylist.htm">M </a>, <a href="/skin/tonic_snow/nectarine/Nplaylist.htm">N </a>, <a href="/skin/tonic_snow/nectarine/Oplaylist.htm">O 
+							</a>, <a
+href="/skin/tonic_snow/nectarine/Pplaylist.htm">P </a>, <a href="/skin/tonic_snow/nectarine/Qplaylist.htm">Q </a>, <a href="/skin/tonic_snow/nectarine/Rplaylist.htm">R 
+							</a>, <a
+href="/skin/tonic_snow/nectarine/Splaylist.htm">S </a>, <a href="/skin/tonic_snow/nectarine/Tplaylist.htm">T </a>, <a href="/skin/tonic_snow/nectarine/Uplaylist.htm">U 
+							</a>,<a
+href="/skin/tonic_snow/nectarine/Vplaylist.htm">V </a>, <a href="/skin/tonic_snow/nectarine/Wplaylist.htm">W </a>, <a href="/skin/tonic_snow/nectarine/Xplaylist.htm">X</a>, 
+							<a
+href="/skin/tonic_snow/nectarine/Yplaylist.htm">Y </a>, <a href="/skin/tonic_snow/nectarine/Zplaylist.htm">Z</a></font></font></p>
+					</center>
+				</div>
+			</center>
+			<p><IMG NAME="nectarine_12" SRC="/skins/tonic/nectarine/images/nectarine_12.gif" WIDTH=583 HEIGHT=55></p>
+			</TD>
+	</TR>
+	<TR> 
+		<TD COLSPAN=5 ROWSPAN=2> <IMG SRC="/skins/tonic/nectarine/images/nectarine_13.gif" WIDTH=481 HEIGHT=46></TD>
+		<TD COLSPAN=2> <IMG SRC="/skins/tonic/nectarine/btnnecta.gif" WIDTH=88 HEIGHT=32></TD>
+		<TD ROWSPAN=2> <IMG SRC="/skins/tonic/nectarine/images/nectarine_15.gif" WIDTH=14 HEIGHT=46></TD>
+	</TR>
+	<TR> 
+		<TD COLSPAN=2 height="15"> <IMG SRC="/skins/tonic/nectarine/images/nectarine_16.gif" WIDTH=88 HEIGHT=14></TD>
+	</TR>
+</TABLE>
+<p>		</TD>
+	</TR>
+	<TR> 
+		<TD width="10">&nbsp;</TD>
+		<TD width="640" valign="bottom"><FONT class=menubottom><BR><BR>[ <A href="/skin/tonic_snow/index.html">&gt;NEWS</A> /
+<A href="/skin/tonic_snow/people/birthdays.html">&gt;PEOPLE</A> /
+<A href="/skin/tonic_snow/parties/index.html">&gt;PARTIES</A> /
+<A href="/skin/tonic_snow/charts/index.html">&gt;CHARTS</A> /
+<A href="/skin/tonic_snow/misc.html">&gt;MISC</A> /
+<A href="/skin/tonic_snow/soon.html">&gt;FORUMS</A> /
+<A href="/skin/tonic_snow/links/links.html">&gt;LINKS</A> /
+<A href="/skin/tonic_snow/faq.html">&gt;FAQ</A> /
+<A href="/skin/tonic_snow/credits.html">&gt;CREDITS</A> ]<BR>
+</FONT> 
+<HR size="1" align="left"></FONT></TD>
+	</TR>
+</TABLE>
+<SCRIPT src="/js/oj.js"></SCRIPT>
+</BODY>
+</HTML></p>
+
