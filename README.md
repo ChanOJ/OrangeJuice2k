@@ -296,3 +296,12 @@ If the apply rejects an edge rule, the 404 path or the Edge Script, set it by ha
 5. Edge Scripting > *Add Script* > *Middleware*, name `orangejuice99-legacy-redirects`, paste
    `infra/edge/redirects.js`, *Publish*; link it to the pull zone `orangejuice99`. Then CDN >
    pull zone > *Caching* > *Vary cache*: *Query string* on.
+
+## To Do
+
+Cross-links to fix in a batch pass (the targets are archived on `sauthier.family`; rewrite the `href`s):
+
+- `ltp.ojuice.net` (234 links in 13 files): LTP4 (https://ltp4.sauthier.family).
+- `ltp.planet-d.net` (91 links in 5 files): LTP3 (https://ltp3.sauthier.family).
+- `ojuice.planet-d.net` (156 links in 8 files): this site's original address, point to its own pages.
+- `www.ojuice.net` (91 links in 1 file): Orange Juice v3 (https://orangejuicev3.sauthier.family).
