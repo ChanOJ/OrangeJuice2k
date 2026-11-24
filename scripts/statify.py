@@ -1008,16 +1008,16 @@ class Site:
         photos = {r["id"]: photo(r) for r in rows}
         self.counts["people photos"] = sum(1 for v in photos.values() if v)
 
-        def email(v, hidden, last):
-            """local@domain when the local part is a first name or a nick; local@???? when it holds a family
-            name (or the person asked to hide the address)."""
+        def email(v, hidden):
+            """People sheets (owner decision 2026-11-24, too many addresses to review): first and last letter of
+            the local part with asterisks between, complete domain (`l******t@domain.com`); `@????` when the
+            person asked to hide the address."""
             v = (v or "").strip()
             if "@" not in v:
                 return "..."
             local, domain = v.split("@", 1)
-            if hidden or not keep_email_whole(local, (last,)):
-                return html_encode(local) + "@" + MASK
-            return html_encode(local) + "@" + html_encode(domain.strip())
+            stars = local[0] + "*" * (len(local) - 2) + local[-1] if len(local) > 2 else "*" * len(local)
+            return html_encode(stars) + "@" + (MASK if hidden else html_encode(domain.strip()))
 
         def birth(r, fmt):
             md = (r["birthmd"] or "").strip()
@@ -1052,7 +1052,7 @@ class Site:
                 "$$FUN1$$": s2h(r["fun1"]), "$$FUN2$$": s2h(r["fun2"]),
                 "$$HOMEPAGE$$": '<A HREF="%s">%s</A>' % (url, html_encode(url)) if url else "...",
                 "$$NAME$$": (html_encode(first) + " " + html_encode(last)).strip() or "...",
-                "$$EMAIL$$": email(r["email"], r["isemailhidden"], last),
+                "$$EMAIL$$": email(r["email"], r["isemailhidden"]),
                 "$$SEX$$": "FEMALE" if r["sex"] else "MALE",
                 "$$BIRTHDATE$$": birth(r, lambda dd, mm: "%02d/%02d/%s" % (dd, mm, MASK)) or "...",
                 "$$INTERVIEW$$": interviews(pid), "$$MSG$$": "",
