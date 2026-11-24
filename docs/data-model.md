@@ -175,7 +175,7 @@ dropped elements in `build-meta/dropped.tsv`.
 - Oneliner popups: date kept, host name and browser shown as `????`; the IP was never shown.
 - People sheets (owner decision, 2026-11-23) show nick, groups, real name, e-mail (as above), sex, birth date as `dd/mm/????` (the year is never output, nor an age),
   country and flag, computer, functions, status, homepage, ICQ ("ICQ state :" and the pager link with the UIN as in 2000; the live presence badge came from the
-  dead ICQ servers and is replaced by the grey flower "hidden" icon, `scripts/assets/icqdis.gif`, and the legend is kept), IRC, scene year,
+  dead ICQ servers and is replaced by the red flower "offline" icon, `scripts/assets/icqoff.gif`, and the legend is kept), IRC, scene year,
   parties, preferences, the two "fun" answers, interview links and the ID photo. Hidden: French
   department (`[dep / number]` next to the country in 2000: a location detail of little value),
   password, logins, cookies, IPs (`LOGININFO`, `COOKIES`, `LOGGED` are never read).

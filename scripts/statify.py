@@ -197,9 +197,9 @@ ICQ_ICONS = ("pictures/icqon.gif", "pictures/icqoff.gif", "pictures/icqdis.gif")
 
 
 def icq_badge(uin, nick, size=18):
-    """The pager link of the original (UIN in its href) around the grey flower ("hidden" badge) hard-coded:
+    """The pager link of the original (UIN in its href) around the red flower ("offline" badge) hard-coded:
     the live presence image came from the dead ICQ servers and nothing is requested from them."""
-    return ('<A href="http://wwp.mirabilis.com/scripts/Search.dll?to=%s"><IMG src="/pictures/icqdis.gif" align="top" '
+    return ('<A href="http://wwp.mirabilis.com/scripts/Search.dll?to=%s"><IMG src="/pictures/icqoff.gif" align="top" '
             'width=%d height=%d border=0 alt="Click here to add %s to your ICQ contact list"></A>'
             % (uin, size, size, html_encode(nick)))
 
@@ -948,7 +948,7 @@ class Site:
         Population: PEOPLE rows created before the cut-off (all of them are in the 2000 nick list).
         Shown (owner decision): nick, groups, real name, e-mail as `local@????`, sex, birth date as
         `dd/mm/????` (the year is never output), country + flag, computer, functions, status, homepage,
-        ICQ link (UIN in the pager link, grey-flower badge: no request to the ICQ servers), IRC, scene year, parties,
+        ICQ link (UIN in the pager link, red-flower (offline) badge: no request to the ICQ servers), IRC, scene year, parties,
         preferences, fun answers, interview links, ID photo. Hidden: French department, password,
         logins, cookies, IPs."""
         d = self.data
