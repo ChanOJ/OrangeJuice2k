@@ -68,7 +68,7 @@ The ASP pages were rendered once from their skin templates and the database; the
   read-only" notice replaces them); searches are client-side (`/js/oj.js`, `/idx/*.json`).
 - The 13 skins are all rendered (tonic at the root, the others under `/skin/<name>/`), with a
   JavaScript skin chooser; new visitors always get tonic (no 2000 skin of the day).
-- Personal data redacted as in OrangeJuice98 (`nick@????`, `dd/mm/????`, IPs as `????`);
+- Personal data redacted: e-mails as `l*****t@domain.com` on people, groups, interviews and parties pages, elsewhere `local@????` only when the local part holds a family name; `dd/mm/????`, IPs as `????`;
   sources, credentials and private pictures never published (`scripts/exclude-globs.txt`).
 
 ## Extracting the database
@@ -248,7 +248,7 @@ GitHub secrets: `BUNNY_API_KEY` (bunny.net account API key) and `TF_VAR_STATE_PA
 cd infra && pass-cli run --env-file secrets.env -- tofu plan
 ```
 
-## First setup (to do)
+## First setup (done: the site is live; kept as the recipe)
 
 1. Validate offline and create the state passphrase item `OrangeJuice2k-tofu-state-passphrase`
    in Proton Pass (generated, never shown; the item kept its original name after the
@@ -299,8 +299,6 @@ If the apply rejects an edge rule, the 404 path or the Edge Script, set it by ha
 
 ## To Do
 
-Cross-links still to decide (hosts of the family whose archive path is not certain; their `href`s are kept as written, a click may fail):
+Nothing pending. Decided on 2026-11-24: `mmts.ojuice.net` (2 links), `www.ojuice.org` (1 link) and `ojuice.e-actu.net` (text only) stay as written (dead hosts, a click may fail).
 
-- `mmts.ojuice.net` (2 links, news page 15 and 22), `www.ojuice.org` (1 link, news page 38), `ojuice.e-actu.net` (text only, article 1068).
-
-Done on 2026-11-24: `ltp.ojuice.net` to LTP4 (https://ltp4.sauthier.family) and `ltp.planet-d.net` to LTP3 (https://ltp3.sauthier.family), host-only links; `ojuice.citeweb.net` to this site (https://orangejuice99.sauthier.family, path kept; most of its old paths do not exist); `ojuice.planet-d.net` and `www.ojuice.net` to this site's own pages (as `ojuice.net`; the radio streams on port 8000 stay as written).
+Cross-links done on 2026-11-24: `ltp.ojuice.net` to LTP4 (https://ltp4.sauthier.family) and `ltp.planet-d.net` to LTP3 (https://ltp3.sauthier.family), host-only links; `ojuice.citeweb.net` to this site (https://orangejuice99.sauthier.family, path kept; most of its old paths do not exist); `ojuice.planet-d.net` and `www.ojuice.net` to this site's own pages (the radio streams on port 8000 stay as written).
