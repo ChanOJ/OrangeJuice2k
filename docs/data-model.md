@@ -35,7 +35,7 @@ Inputs (all in the git-ignored `private/`, read-only):
 
 Only these columns are ever selected. Password, IP, host name, user agent, login and cookie
 columns and tables (`LOGININFO`, `COOKIES`, `LOGGED`) are never read for output; of `PEOPLE.email`
-only the part before `@` is output.
+the domain is output only when the part before `@` is a first name or a nick (section 7).
 
 | Table | Columns read | Used for |
 | --- | --- | --- |
@@ -160,13 +160,24 @@ dropped elements in `build-meta/dropped.tsv`.
 
 ## 7. Redactions and exclusions
 
-- E-mail addresses: `mailto:` links become their label, `local@domain` becomes `local@????`
-  (as OrangeJuice98), everywhere including news, interviews and links pages.
+- E-mail addresses (rule of 2026-11-24): the domain is truncated (`local@????`, `mailto:` link reduced to
+  its label) only when the local part holds a family name; a first name or a nick alone keeps the
+  complete address and its `mailto:` link (without the pre-filled subject). "Holds a family name" =
+  the people table (the local part contains the owner's last name) or the reviewed list
+  `private/email-family.txt` (git-ignored: it names real people); sheets of people who asked to hide
+  their address always show `local@????`. Everywhere, including news, interviews and links pages, except the
+  people, groups, interviews and parties pages: too many addresses to review, so every address there is shown as first letter, asterisks, last
+  letter of the local part and the complete domain (`l******t@domain.com`; `@????` kept for hidden ones).
+- Removal footer ("To be removed from this page, contact me."): pages that show a family name
+  (people sheets with a last name, interviews, credits) or an address truncated as above
+  (`local@????`); never on nick-only pages (party attendee lists, voters). Its block is 780 px wide
+  (the width of the site's tables) and left-aligned like the pages.
+- External links are kept as written (counters, forms, ICQ presence and the song-request engine excepted);
+  the addresses of the other archives of the family are rewritten (README, "Cross-links").
 - Oneliner popups: date kept, host name and browser shown as `????`; the IP was never shown.
-- People sheets (owner decision, 2026-11-23) show nick, groups, real name, e-mail as `local@????`
-  (text, no `mailto:`), sex, birth date as `dd/mm/????` (the year is never output, nor an age),
-  country and flag, computer, functions, status, homepage, ICQ number (as text: the status badge
-  came from the ICQ servers and is not shown, nor the online/offline legend), IRC, scene year,
+- People sheets (owner decision, 2026-11-23) show nick, groups, real name, e-mail (as above), sex, birth date as `dd/mm/????` (the year is never output, nor an age),
+  country and flag, computer, functions, status, homepage, ICQ ("ICQ state :" and the pager link with the UIN as in 2000; the live presence badge came from the
+  dead ICQ servers and is replaced by the red flower "offline" icon, `scripts/assets/icqoff.gif`, and the legend is kept), IRC, scene year,
   parties, preferences, the two "fun" answers, interview links and the ID photo. Hidden: French
   department (`[dep / number]` next to the country in 2000: a location detail of little value),
   password, logins, cookies, IPs (`LOGININFO`, `COOKIES`, `LOGGED` are never read).
@@ -178,7 +189,8 @@ dropped elements in `build-meta/dropped.tsv`.
   show the original "there is an ID photo" icon.
 - `verify_build.py` reads birth years, e-mails and departments from the private database at run
   time: it fails on a published person's birth year next to their day/month, on their e-mail with
-  its domain, on any real e-mail address anywhere, on their department as the 2000 sheet printed it,
+  its domain when it holds their last name, on any address with a family name anywhere (private
+  list), on their department as the 2000 sheet printed it,
   and on any ID photo that is not of a published person.
 - IPv4: masked as `????` unless it is the host of a URL; the visitor and office IPs of the
   original site are masked everywhere.

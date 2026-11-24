@@ -41,6 +41,7 @@ page	target	reason
 /news/page-35.html	http://www.ojuice.net/handles/handle.asp?id=1854	missing
 /news/page-37.html	http://www.ojuice.net/winamp_playlist.html	missing
 /news/page-37.html	http;//www.cfxweb.net/articles/javapps/javapps.shtml	missing
+/news/page-39.html	Http://ojuice.planet-d.net/winamp_playlist.html	missing
 /news/page-41.html	../handles/handle.asp?id=2924	missing
 /news/page-52.html	/pictures/pubs/audiophonik_420.gif	missing
 /news/page-52.html	/skins/sdk.zip	excluded
@@ -83,4 +84,4 @@ page	target	reason
 /wallpapers.html	pictures/wallpapers/xhalelittle.gif	missing
 /wallpapers.html	pictures/wallpapers/zthee.zip	missing
 /wallpapers.html	pictures/wallpapers/ztheelittle.gif	missing
-*	(1438 links to dead third-party services: audiorealm.com, cnxweb.com, extreme-dm.com, mirabilis.com)	dead third-party service
+*	(1434 links to dead third-party services: audiorealm.com, cnxweb.com, extreme-dm.com)	dead third-party service

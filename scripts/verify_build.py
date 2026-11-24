@@ -12,7 +12,8 @@ Hard checks (exit 1 on failure):
   * every internal link (href/src/background/action) resolves to a file of the build; no internal link
     keeps an old dynamic form (`.asp`, query string)
   * no link or script pointing to http(s)://(www.)ojuice.net
-  * no e-mail address (the redacted `nick@????` form passes) and no `mailto:`
+  * no e-mail address with a family name in its local part (it must be `local@????`; first names and nicks keep
+    their address)
   * none of the secret values of the original site (read at run time from private/site-raw/global.asa,
     admin/global.bak and admin/index.asp, so they never appear in the repository) and none of the visitor
     or office IP addresses of private/site-raw/_data/skins_ip.txt / admin/index.asp
@@ -50,12 +51,29 @@ LEFTOVERS = [
     ("vbscript api", re.compile(r"(?i)\b(?:Server\.CreateObject|FileSystemObject|OpenTextFile|Request\.(?:Form|QueryString|"
                                 r"ServerVariables|Cookies)|Response\.(?:Write|Redirect)|Server\.MapPath)\b")),
     ("form tag", re.compile(r"(?i)<form\b")),
-    ("mailto:", re.compile(r"(?i)mailto:")),
 ]
 # The removal-request footer (statify.py) carries the only mailto: of the site: leave it out of the scans.
 REMOVAL_NOTE_RE = re.compile(r'(?s)<div id="removal-note".*?</div>')
 EMAIL_RE = re.compile(r"[A-Za-z0-9._+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+")
-OWN_HOST_RE = re.compile(r"(?i)https?://(?:www\.)?ojuice\.net(?![\w.-])")
+
+
+def norm(v):
+    return re.sub(r"[^a-z]", "", (v or "").lower())
+
+
+def family_locals():
+    """Local parts holding a family name (private/email-family.txt + people table); None without private/."""
+    lst, db = REPO / "private" / "email-family.txt", REPO / "private" / "db" / "ojuice.sqlite"
+    if not lst.is_file() or not db.is_file():
+        return None
+    out = {l.strip().lower() for l in lst.read_text(encoding="utf-8").splitlines() if l.strip() and not l.startswith("#")}
+    cx = sqlite3.connect("file:%s?mode=ro" % db, uri=True)
+    for last, email in cx.execute("SELECT lastname, email FROM people WHERE email LIKE '%@%' AND lastname IS NOT NULL"):
+        local = email.split("@", 1)[0].strip()
+        if len(norm(last)) >= 3 and norm(last) in norm(local):
+            out.add(local.lower())
+    return out
+OWN_HOST_RE = re.compile(r"(?i)https?://(?:www\.)?ojuice\.net(?![\w.-])(?!:(?!80\b)\d)")   # the radio streams (:8000) are dead links kept as written
 IPV4 = re.compile(r"(?<![\d.])(?:(?:25[0-5]|2[0-4]\d|1?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|1?\d?\d)(?![\d.])")
 KEY_PAGES = ("index.html", "skins.html", "search.html", "archived.html", "news/page-2.html", "article/1111.html", "groups/a.html",
              "parties/index.html", "parties/past.html", "piclib/index.html", "piclib/photos.html",
@@ -194,7 +212,13 @@ def main(argv=None):
         if n.lower().endswith(TEXT_EXT):
             texts[n] = rd(p)
 
-    # 2. leftovers, e-mails, own host
+    # 2. leftovers, e-mails, own host. Owner rule: an address is complete when its local part is a first
+    # name or a nick, `local@????` when it holds a family name: the reviewed list and the people table
+    # (private, never committed) say which local parts must not appear complete.
+    family = family_locals()
+    if family is None:
+        print("notice: private e-mail list not found: family-name e-mail check skipped (CI mode)")
+        family = set()
     hits = defaultdict(list)
     for f, t in texts.items():
         for label, rx in LEFTOVERS:
@@ -202,7 +226,8 @@ def main(argv=None):
             if m:
                 hits[label].append("%s: %s" % (f, t[max(0, m.start() - 20):m.end() + 20].replace("\n", " ")))
         for m in EMAIL_RE.finditer(t):
-            hits["e-mail address"].append("%s: %s" % (f, m.group(0)))
+            if m.group(0).split("@", 1)[0].lower() in family:
+                hits["e-mail address with a family name"].append("%s: %s" % (f, m.group(0)))
         for chunk in scripts_and_attrs(t):
             m = OWN_HOST_RE.search(chunk)
             if m:
@@ -293,7 +318,8 @@ def main(argv=None):
             t = (meta / f).read_text(encoding="utf-8", errors="replace")
             texts["build-meta/" + f] = t
             for m in EMAIL_RE.finditer(t):
-                fail("e-mail address in build-meta", ["build-meta/%s: %s" % (f, m.group(0))])
+                if m.group(0).split("@", 1)[0].lower() in family:
+                    fail("e-mail address with a family name in build-meta", ["build-meta/%s: %s" % (f, m.group(0))])
     if raw.is_dir():
         secrets, ips = secrets_and_ips(raw)
         if not secrets:
@@ -325,19 +351,21 @@ def main(argv=None):
         leaks, checked = [], 0
         cutoff = "2000-11-20"
         info = {r[0]: r[1:] for r in cx.execute(
-            "SELECT id, email, birthyear, birthmd, department, department_num, dt_crea, irc_net FROM people")}
+            "SELECT id, email, birthyear, birthmd, department, department_num, dt_crea, irc_net, "
+            "lastname, isemailhidden FROM people")}
         months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         for f in pages:
             m = re.fullmatch(r"(?:skin/[^/]+/)?people/(\d+)\.html", f)
             if m and int(m.group(1)) in info:
                 checked += 1
                 t = texts[f].lower()
-                email, by, bmd, dep, depn, _dt, ircn = [("" if v is None else str(v)).strip().lower()
-                                                        for v in info[int(m.group(1))]]
+                email, by, bmd, dep, depn, _dt, ircn, last, hidden = [("" if v is None else str(v)).strip().lower()
+                                                                      for v in info[int(m.group(1))]]
                 if len(bmd) == 4 and by.isdigit() and int(by) > 1900 and \
                         re.search(r"%s/%s/\s*(?:19)?%s\b" % (bmd[2:], bmd[:2], by[-2:]), t):
                     leaks.append("%s: birth year" % f)
-                if "@" in email and email in t:
+                if "@" in email and email in t and (hidden == "1" or email.split("@", 1)[0] in family
+                                                    or (len(norm(last)) >= 3 and norm(last) in norm(email.split("@", 1)[0]))):
                     leaks.append("%s: e-mail with its domain" % f)
                 if (dep or depn) and (dep or depn) not in ircn and ("[" + html_ref(dep or depn)) in t:
                     leaks.append("%s: department" % f)

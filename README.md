@@ -178,7 +178,7 @@ rules. One script is smaller, testable (`scripts/test_edge_script.mjs`) and vers
 
 ## Removal requests
 
-Pages that list or describe people end with a small footer, "To be removed from this page, contact me." (a `mailto:` link). `scripts/statify.py` adds it (`is_people_page`), so it survives rebuilds; `scripts/verify_build.py` leaves it out of its `mailto:` and e-mail checks.
+Pages that show a family name (people sheets with a last name, interviews, credits) or an e-mail address truncated as `local@????` end with a small footer, "To be removed from this page, contact me." (a `mailto:` link). `scripts/statify.py` adds it (`needs_removal_note`), so it survives rebuilds; `scripts/verify_build.py` leaves it out of its checks. Pages with nicks only (party attendee lists, voters) have none.
 
 ## Deploying
 
@@ -299,9 +299,8 @@ If the apply rejects an edge rule, the 404 path or the Edge Script, set it by ha
 
 ## To Do
 
-Cross-links to fix in a batch pass (the targets are archived on `sauthier.family`; rewrite the `href`s):
+Cross-links still to decide (hosts of the family whose archive path is not certain; their `href`s are kept as written, a click may fail):
 
-- `ltp.ojuice.net` (234 links in 13 files): LTP4 (https://ltp4.sauthier.family).
-- `ltp.planet-d.net` (91 links in 5 files): LTP3 (https://ltp3.sauthier.family).
-- `ojuice.planet-d.net` (156 links in 8 files): this site's original address, point to its own pages.
-- `www.ojuice.net` (91 links in 1 file): Orange Juice v3 (https://orangejuicev3.sauthier.family).
+- `mmts.ojuice.net` (2 links, news page 15 and 22), `www.ojuice.org` (1 link, news page 38), `ojuice.e-actu.net` (text only, article 1068).
+
+Done on 2026-11-24: `ltp.ojuice.net` to LTP4 (https://ltp4.sauthier.family) and `ltp.planet-d.net` to LTP3 (https://ltp3.sauthier.family), host-only links; `ojuice.citeweb.net` to this site (https://orangejuice99.sauthier.family, path kept; most of its old paths do not exist); `ojuice.planet-d.net` and `www.ojuice.net` to this site's own pages (as `ojuice.net`; the radio streams on port 8000 stay as written).
