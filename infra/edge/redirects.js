@@ -45,6 +45,11 @@ function norm(pathname, search) {
 
 const OJ_HOSTS = new Set(["www.ojuice.net", "ojuice.net"]);
 const NOT_FOUND = { status: 404 };
+function foreign(pathname) {
+  let d;
+  try { d = decodeURIComponent(pathname); } catch (e) { d = pathname; }
+  return /^[\/\\]{2}/.test(d);   // "//host" or "/\host": a protocol-relative URL once in Location
+}
 const moved = (location) => ({ status: 301, location });
 
 // -> null (serve the request as is), {status: 301, location} or {status: 404}.
@@ -70,6 +75,7 @@ function resolve(pathname, search, depth = 0) {
       let target;
       try { target = new URL(u, "http://www.ojuice.net/"); } catch (e) { return NOT_FOUND; }
       if (!OJ_HOSTS.has(target.hostname.toLowerCase())) return NOT_FOUND;
+      if (foreign(target.pathname)) return NOT_FOUND;
       const r = resolve(target.pathname, target.search, depth + 1);
       if (r) return r;
       return moved(target.pathname + target.search);
@@ -95,7 +101,7 @@ BunnySDK.net.http.servePullZone().onOriginRequest((ctx) => {
   if (r.status === 301) {
     return Promise.resolve(new Response(null, {
       status: 301,
-      headers: { Location: r.location, "Cache-Control": "public, max-age=86400" },
+      headers: { Location: url.origin + r.location, "Cache-Control": "public, max-age=86400" },
     }));
   }
   url.pathname = MISSING;
