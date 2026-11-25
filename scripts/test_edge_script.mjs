@@ -72,6 +72,11 @@ const cases = [
   ["/gonlink.asp?u=http%3A%2F%2Fojuice.net%2Ffaq.html", "/faq.html"],
   ["/gonlink.asp?u=http://evil.example/", 404], ["/gonlink.asp?u=//evil.example/x", 404],
   ["/gonlink.asp?u=javascript:alert(1)", 404], ["/gonlink.asp", 404],
+  // open redirect: a target path starting with // or /\ must not become a protocol-relative Location
+  ["/gonlink.asp?u=http://www.ojuice.net//example.org/x", 404], ["/gonlink.asp?u=http://www.ojuice.net/\\example.org/x", 404],
+  ["/gonlink.asp?u=http://www.ojuice.net/%5Cexample.org/x", 404], ["/gonlink.asp?u=http://www.ojuice.net///x", 404],
+  ["/gonlink.asp?u=http://www.ojuice.net%2F%2Fexample.org/x", 404],
+  ["/gonlink.asp?u=http://www.ojuice.net/ok.html", "/ok.html"],
   // old folders
   ["/search/", "/piclib/index.html"], ["/groups/", "/groups/a.html"], ["/charts/", "/charts/index.html"],
 ];
