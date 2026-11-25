@@ -205,7 +205,7 @@ BunnySDK.net.http.servePullZone().onOriginRequest((ctx) => {{
   if (r.status === 301) {{
     return Promise.resolve(new Response(null, {{
       status: 301,
-      headers: {{ Location: url.origin + r.location, "Cache-Control": "public, max-age=86400" }},
+      headers: {{ Location: r.location, "Cache-Control": "public, max-age=86400" }},
     }}));
   }}
   url.pathname = MISSING;
